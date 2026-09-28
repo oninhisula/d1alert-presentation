@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>D1ALERT — Pitch Deck | QUANTA</title>
+  <meta name="description" content="D1ALERT by QUANTA — Offline-First Emergency Alert System for the Philippines."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      /* ── EYE-FRIENDLY LUXURY PALETTE (SOPHISTICATED MIDNIGHT OBSIDIAN) ── */
+      --bg:             #080c17;
+      --bg-card:        rgba(15, 23, 42, 0.75);
+      --bg-card-hover:  rgba(22, 34, 60, 0.88);
+      --bg-s:           rgba(30, 41, 59, 0.65);
+      --bord:           rgba(148, 163, 184, 0.12);
+      --bord-s:         rgba(148, 163, 184, 0.22);
+      --bord-glow:      rgba(56, 189, 248, 0.35);
+
+      /* Refined Accents */
+      --blue:           #38bdf8;
+      --blue-d:         rgba(56, 189, 248, 0.12);
+      --teal:           #2dd4bf;
+      --teal-d:         rgba(45, 212, 191, 0.12);
+      --amber:          #fbbf24;
+      --amber-d:        rgba(251, 191, 36, 0.12);
+      --red:            #f87171;
+      --red-d:          rgba(248, 113, 113, 0.12);
+      --violet:         #a78bfa;
+      --violet-d:       rgba(167, 139, 250, 0.12);
+
+      /* Soothing Typography Contrast */
+      --txt:            #f8fafc;
+      --txt2:           #cbd5e1;
+      --txt3:           #64748b;
+      --txt-muted:      #475569;
+
+      --sans:           'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --mono:           'JetBrains Mono', 'Fira Code', monospace;
+      --ease:           cubic-bezier(0.16, 1, 0.3, 1);
+      --max:            880px;
+      --r:              16px;
+      --r-sm:           10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ── AMBIENT EYE-COMFORT ATMOSPHERE ── */
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse 90% 55% at 50% -5%, rgba(56, 189, 248, 0.13) 0%, transparent 65%),
+        radial-gradient(circle 800px at 90% 30%, rgba(45, 212, 191, 0.08) 0%, transparent 70%),
+        radial-gradient(circle 900px at 10% 65%, rgba(99, 102, 241, 0.08) 0%, transparent 70%),
+        radial-gradient(circle 700px at 85% 95%, rgba(251, 191, 36, 0.06) 0%, transparent 65%);
+      background-attachment: fixed;
+      font-family: var(--sans);
+      font-size: 15px;
+      color: var(--txt);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* Precision Technical Grid Overlay */
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.016) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.016) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, #000 60%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, #000 60%, transparent 100%);
+    }
+
+    /* ── STICKY NAVIGATION ── */
+    #topnav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8, 12, 23, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--bord);
+    }
+    .nav-inner {
+      max-width: var(--max); margin: 0 auto;
+      display: flex; align-items: center; gap: 0;
+      padding: 0 24px; overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-logo {
+      font-size: 17px; font-weight: 900; letter-spacing: -.03em;
+      background: linear-gradient(90deg, #38bdf8, #2dd4bf);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; white-space: nowrap;
+      padding: 14px 20px 14px 0; margin-right: 4px;
+      border-right: 1px solid var(--bord); flex-shrink: 0;
+    }
+    .nav-links { display: flex; align-items: center; gap: 2px; padding-left: 8px; }
+    .nav-links a {
+      text-decoration: none; white-space: nowrap;
+      font-size: 12px; font-weight: 600; color: var(--txt3);
+      padding: 16px 12px; border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+      letter-spacing: .02em;
+    }
+    .nav-links a:hover { color: var(--txt2); }
+    .nav-links a.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+    /* ── SECTIONS ── */
+    section {
+      position: relative; z-index: 1;
+      padding: 84px 24px;
+      border-bottom: 1px solid var(--bord);
+    }
+    section:last-child { border-bottom: none; }
+    .wrap { max-width: var(--max); margin: 0 auto; }
+
+    /* Wide layout for dashboard-like sections */
+    #s4 .wrap, #s5 .wrap, #s6 .wrap { max-width: 1260px; }
+
+    /* ── SECTION HEADER & METRICS ── */
+    .s-num {
+      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      color: var(--blue); letter-spacing: .12em; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 100px; padding: 6px 14px;
+      font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+      margin-bottom: 18px; width: fit-content;
+      font-family: var(--mono);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    .chip-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      display: inline-block; flex-shrink: 0;
+    }
+    .chip-dot.red    { background: var(--red); box-shadow: 0 0 8px var(--red); }
+    .chip-dot.teal   { background: var(--teal); box-shadow: 0 0 8px var(--teal); }
+    .chip-dot.amber  { background: var(--amber); box-shadow: 0 0 8px var(--amber); }
+    .chip-dot.blue   { background: var(--blue); box-shadow: 0 0 8px var(--blue); }
+    .chip-dot.violet { background: var(--violet); box-shadow: 0 0 8px var(--violet); }
+
+    .c-blue   { background: var(--blue-d);   border: 1px solid rgba(56,189,248,.3);  color: var(--blue); }
+    .c-teal   { background: var(--teal-d);   border: 1px solid rgba(45,212,191,.3);  color: var(--teal); }
+    .c-amber  { background: var(--amber-d);  border: 1px solid rgba(251,191,36,.3);  color: var(--amber); }
+    .c-red    { background: var(--red-d);    border: 1px solid rgba(248,113,113,.3);  color: var(--red); }
+    .c-violet { background: var(--violet-d); border: 1px solid rgba(167,139,250,.3); color: var(--violet); }
+
+    .s-title {
+      font-size: clamp(28px, 4vw, 42px); font-weight: 800;
+      line-height: 1.18; letter-spacing: -.025em; color: var(--txt);
+      margin-bottom: 18px;
+    }
+    .s-title .hi-blue   { color: var(--blue); }
+    .s-title .hi-teal   { color: var(--teal); }
+    .s-title .hi-amber  { color: var(--amber); }
+    .s-title .hi-red    { color: var(--red); }
+    .s-title .hi-violet { color: var(--violet); }
+
+    .s-body {
+      font-size: 15px; color: var(--txt2); line-height: 1.8;
+      margin-bottom: 30px; max-width: 740px;
+      text-align: justify; text-justify: inter-word;
+    }
+    .s-body strong { color: var(--txt); font-weight: 600; }
+    .s-body em     { color: var(--teal); font-style: normal; font-weight: 600; }
+
+    .divider-lbl {
+      font-family: var(--mono); font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em; color: var(--txt3);
+      margin: 32px 0 16px; display: flex; align-items: center; gap: 12px;
+    }
+    .divider-lbl::after { content: ''; flex: 1; height: 1px; background: var(--bord); }
+
+    /* ── GRIDS ── */
+    .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+    /* ── BASE CARDS (GLASSMORPHIC) ── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--bord);
+      border-radius: var(--r);
+      padding: 22px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px -6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+    }
+    .card:hover {
+      border-color: var(--bord-s);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px -6px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    /* ── HERO PILLS (SECTION 01) ── */
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 18px; border-radius: 100px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 13px; font-weight: 600; color: var(--txt);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      backdrop-filter: blur(12px);
+      transition: all .25s var(--ease);
+    }
+    .hero-pill:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 16px rgba(56, 189, 248, 0.15);
+    }
+    .hero-pill .dot {
+      width: 8px; height: 8px; border-radius: 50%; display: inline-block;
+    }
+    .hero-pill .dot.red   { background: #f87171; box-shadow: 0 0 10px #f87171; }
+    .hero-pill .dot.blue  { background: #38bdf8; box-shadow: 0 0 10px #38bdf8; }
+    .hero-pill .dot.teal  { background: #2dd4bf; box-shadow: 0 0 10px #2dd4bf; }
+    .hero-pill .dot.amber { background: #fbbf24; box-shadow: 0 0 10px #fbbf24; }
+
+    /* ── PAIN BLOCK (SECTION 02) ── */
+    .pain-block {
+      background: var(--bg-card);
+      border: 1px solid var(--bord);
+      border-radius: var(--r);
+      padding: 24px 22px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px -6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: border-color .25s, transform .25s;
+    }
+    .pain-block:hover {
+      border-color: rgba(248, 113, 113, 0.4);
+      transform: translateY(-3px);
+    }
+    .pain-block .pb-title {
+      font-size: 16px; font-weight: 700; color: var(--txt);
+      margin-bottom: 14px; display: flex; align-items: center; gap: 12px;
+    }
+    .pb-num {
+      width: 32px; height: 32px; border-radius: 8px;
+      font-family: var(--mono); font-size: 12px; font-weight: 800;
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .pb-num.red    { background: rgba(248,113,113,0.12); color: #f87171; border: 1px solid rgba(248,113,113,0.3); }
+    .pb-num.amber  { background: rgba(251,191,36,0.12);  color: #fbbf24; border: 1px solid rgba(251,191,36,0.3); }
+    .pb-num.teal   { background: rgba(45,212,191,0.12);  color: #2dd4bf; border: 1px solid rgba(45,212,191,0.3); }
+    .pb-num.violet { background: rgba(167,139,250,0.12); color: #a78bfa; border: 1px solid rgba(167,139,250,0.3); }
+
+    .pain-block ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .pain-block ul li {
+      font-size: 14px; color: var(--txt2); line-height: 1.7; padding-left: 18px; position: relative;
+      text-align: justify; text-justify: inter-word;
+    }
+    .pain-block ul li::before {
+      content: '›'; position: absolute; left: 0; color: var(--red); font-size: 18px; line-height: 1.2; font-weight: 700;
+    }
+    .pain-block ul li strong { color: var(--txt); font-weight: 600; }
+
+    /* ── FEAT ITEM LIST (SECTION 02 BOTTOM) ── */
+    .feat-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px; border-radius: 10px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 13px; font-weight: 600; color: var(--txt);
+      transition: all .2s;
+    }
+    .feat-item:hover {
+      background: rgba(22, 34, 60, 0.85);
+      border-color: rgba(45, 212, 191, 0.35);
+      transform: translateY(-2px);
+    }
+    .feat-dot {
+      width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+    }
+    .feat-dot.blue   { background: var(--blue);   box-shadow: 0 0 8px var(--blue); }
+    .feat-dot.amber  { background: var(--amber);  box-shadow: 0 0 8px var(--amber); }
+    .feat-dot.teal   { background: var(--teal);   box-shadow: 0 0 8px var(--teal); }
+    .feat-dot.violet { background: var(--violet); box-shadow: 0 0 8px var(--violet); }
+
+    /* ── SOLUTION BULLETS (SECTION 03) ── */
+    .bl { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .bl li {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 20px;
+      background: var(--bg-card); border: 1px solid var(--bord);
+      border-radius: var(--r-sm);
+      font-size: 14px; color: var(--txt2); line-height: 1.7;
+      transition: border-color .25s, background .25s, transform .25s;
+    }
+    .bl li span:last-child { flex: 1; text-align: justify; text-justify: inter-word; }
+    .bl li:hover {
+      border-color: rgba(56,189,248,.4);
+      background: rgba(56,189,248,.05);
+      transform: translateX(4px);
+    }
+    .bl-index {
+      flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
+      font-family: var(--mono); font-size: 12px; font-weight: 800;
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: all .25s ease;
+    }
+    .bl-index.blue   { background: rgba(56,189,248,0.12);  color: var(--blue);   border: 1px solid rgba(56,189,248,0.3); }
+    .bl-index.amber  { background: rgba(251,191,36,0.12);  color: var(--amber);  border: 1px solid rgba(251,191,36,0.3); }
+    .bl-index.teal   { background: rgba(45,212,191,0.12);  color: var(--teal);   border: 1px solid rgba(45,212,191,0.3); }
+    .bl-index.violet { background: rgba(167,139,250,0.12); color: var(--violet); border: 1px solid rgba(167,139,250,0.3); }
+    .bl li:hover .bl-index {
+      transform: scale(1.1);
+      box-shadow: 0 0 14px currentColor;
+    }
+
+    /* ── ALERT PIPELINE (SECTION 03) ── */
+    .flow { display: flex; flex-direction: column; border: 1px solid var(--bord); border-radius: var(--r); overflow: hidden; }
+    .flow-step {
+      display: flex; align-items: flex-start; gap: 16px; padding: 18px 22px;
+      border-bottom: 1px solid var(--bord); background: var(--bg-card);
+      transition: background .2s, transform .2s;
+    }
+    .flow-step:last-child { border-bottom: none; }
+    .flow-step:hover { background: rgba(22, 34, 60, 0.7); }
+    .flow-step .fs-dot {
+      width: 36px; height: 36px; border-radius: 50%;
+      flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 12px; font-weight: 800;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--blue); border: 1.5px solid rgba(56, 189, 248, 0.35);
+      box-shadow: 0 2px 10px rgba(56, 189, 248, 0.15);
+      transition: transform .25s ease;
+    }
+    .flow-step:hover .fs-dot { transform: scale(1.12); }
+    .flow-step > div:last-child { flex: 1; }
+    .flow-step .fs-tag {
+      font-family: var(--mono); font-size: 11px; color: var(--blue);
+      font-weight: 700; margin-bottom: 4px; text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .flow-step .fs-txt { font-size: 14px; color: var(--txt2); line-height: 1.65; text-align: justify; text-justify: inter-word; }
+    .flow-step .fs-txt strong { color: var(--txt); font-weight: 600; }
+
+    /* ── TARGET MARKET SEGMENT CARDS (SECTION 04) ── */
+    .seg-c {
+      background: var(--bg-card); border: 1px solid var(--bord);
+      border-radius: var(--r); padding: 24px 20px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px -6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+    }
+    .seg-c:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.5);
+    }
+    .sc-num {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 16px; font-weight: 800;
+      margin-bottom: 16px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      transition: all .3s var(--ease);
+    }
+    .seg-c:hover .sc-num {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px currentColor;
+    }
+    .sc-num.red    { color: #f87171; border-color: rgba(248,113,113,0.35); background: rgba(248,113,113,0.1); }
+    .sc-num.amber  { color: #fbbf24; border-color: rgba(251,191,36,0.35);  background: rgba(251,191,36,0.1); }
+    .sc-num.blue   { color: #38bdf8; border-color: rgba(56,189,248,0.35);  background: rgba(56,189,248,0.1); }
+    .sc-num.violet { color: #a78bfa; border-color: rgba(167,139,250,0.35); background: rgba(167,139,250,0.1); }
+
+    .seg-c .sc-lbl { font-family: var(--mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--txt3); margin-bottom: 10px; }
+    .seg-c .sc-txt { font-size: 14px; color: var(--txt2); line-height: 1.7; text-align: justify; text-justify: inter-word; }
+
+    .target-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .pill-tag {
+      display: inline-flex; align-items: center;
+      padding: 3px 8px; border-radius: 6px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--txt); font-size: 11px; font-weight: 600;
+    }
+
+    /* ── LEAN CANVAS CONTAINER (SECTION 05) ── */
+    .lc-tab-container { margin-top: 24px; }
+    .lc-view-switcher {
+      display: flex; gap: 12px; margin-bottom: 20px; align-items: center; flex-wrap: wrap;
+    }
+    .lc-view-btn {
+      background: var(--bg-card); border: 1px solid var(--bord);
+      color: var(--txt2); font-family: var(--mono); font-size: 12px; font-weight: 600;
+      padding: 10px 18px; border-radius: 10px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: all .2s ease;
+    }
+    .lc-view-btn:hover {
+      background: var(--bg-s); color: var(--txt); border-color: var(--bord-s);
+    }
+    .lc-view-btn.active {
+      background: rgba(56, 189, 248, 0.15); color: #ffffff;
+      border-color: var(--blue);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+    }
+    .btn-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: currentColor;
+    }
+
+    .lc-banner {
+      background: linear-gradient(90deg, #1e3a8a, #0284c7);
+      color: #ffffff; font-family: var(--mono); font-size: 14px; font-weight: 800;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 14px 22px; border-radius: var(--r) var(--r) 0 0;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-bottom: none;
+    }
+
+    .lc-table-wrap {
+      border: 1px solid var(--bord-s); border-radius: var(--r);
+      overflow: hidden; background: var(--bg-card);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+    }
+    .lc-official-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+    }
+    .lc-official-table th {
+      background: rgba(15, 23, 42, 0.95);
+      color: #ffffff; font-family: var(--mono); font-size: 12px; font-weight: 800;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 14px 22px; border-bottom: 2px solid rgba(56, 189, 248, 0.4);
+      border-right: 1px solid rgba(255,255,255,0.08); text-align: left;
+    }
+    .lc-official-table th:last-child { border-right: none; color: var(--teal); }
+    .lc-official-table td {
+      padding: 16px 22px; border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-right: 1px solid rgba(255,255,255,0.07); vertical-align: top; line-height: 1.75;
+    }
+    .lc-official-table td:last-child { border-right: none; }
+    .lc-official-table tr:last-child td { border-bottom: none; }
+    .lc-official-table tr:hover td { background: rgba(56, 189, 248, 0.04); }
+
+    .lc-col-name {
+      width: 250px; min-width: 230px; font-weight: 700; color: #ffffff;
+      font-size: 14px; background: rgba(255,255,255,0.02);
+    }
+    .lc-badge-tag { display: inline-flex; align-items: center; gap: 10px; }
+    .lc-block-badge {
+      width: 28px; height: 28px; border-radius: 7px;
+      font-family: var(--mono); font-size: 11px; font-weight: 800;
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .lc-block-badge.c-red     { background: rgba(248,113,113,0.15); color: #f87171; border: 1px solid rgba(248,113,113,0.35); }
+    .lc-block-badge.c-teal    { background: rgba(45,212,191,0.15);  color: #2dd4bf; border: 1px solid rgba(45,212,191,0.35); }
+    .lc-block-badge.c-amber   { background: rgba(251,191,36,0.15);  color: #fbbf24; border: 1px solid rgba(251,191,36,0.35); }
+    .lc-block-badge.c-violet  { background: rgba(167,139,250,0.15); color: #a78bfa; border: 1px solid rgba(167,139,250,0.35); }
+    .lc-block-badge.c-blue    { background: rgba(56,189,248,0.15);  color: #38bdf8; border: 1px solid rgba(56,189,248,0.35); }
+    .lc-block-badge.c-pink    { background: rgba(244,114,182,0.15); color: #f472b6; border: 1px solid rgba(244,114,182,0.35); }
+    .lc-block-badge.c-sky     { background: rgba(14,165,233,0.15);  color: #38bdf8; border: 1px solid rgba(14,165,233,0.35); }
+    .lc-block-badge.c-orange  { background: rgba(251,146,60,0.15);  color: #fb923c; border: 1px solid rgba(251,146,60,0.35); }
+    .lc-block-badge.c-indigo  { background: rgba(129,140,248,0.15); color: #818cf8; border: 1px solid rgba(129,140,248,0.35); }
+    .lc-block-badge.c-emerald { background: rgba(16,185,129,0.15);  color: #34d399; border: 1px solid rgba(16,185,129,0.35); }
+    .lc-block-badge.c-rose    { background: rgba(251,113,133,0.15); color: #fb7185; border: 1px solid rgba(251,113,133,0.35); }
+    .lc-block-badge.c-green   { background: rgba(52,211,153,0.15);  color: #2dd4bf; border: 1px solid rgba(52,211,153,0.35); }
+
+    .lc-col-body { color: #cbd5e1; font-size: 14px; text-align: justify; text-justify: inter-word; }
+    .lc-col-body strong { color: #ffffff; font-weight: 700; }
+
+    /* ── LEAN CANVAS POSTER BOARD ── */
+    .lc-board {
+      width: 100%; box-sizing: border-box; background: rgba(10, 16, 28, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.3); border-radius: var(--r);
+      padding: 20px; box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+    }
+    .lc-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 12px; margin-top: 14px; }
+    .lc-col-2 { grid-column: span 2; }
+    .lc-col-5 { grid-column: span 5; }
+    .lc-card {
+      background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.08);
+      border-top: 3px solid var(--card-accent, #38bdf8); border-radius: 10px;
+      padding: 14px; display: flex; flex-direction: column; justify-content: flex-start;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+    .lc-card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.2); }
+    .lc-card-title {
+      font-family: var(--mono); font-size: 11px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .05em; color: #ffffff; margin-bottom: 10px; padding-bottom: 7px;
+      border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 8px;
+    }
+    .board-badge {
+      font-family: var(--mono); font-size: 10px; font-weight: 800; padding: 2px 6px;
+      border-radius: 4px; background: rgba(255,255,255,0.1); color: var(--card-accent, #38bdf8);
+    }
+    .lc-list { list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .lc-list li {
+      font-size: 12px; color: #cbd5e1; line-height: 1.5; padding-left: 12px; position: relative;
+      text-align: justify; text-justify: inter-word;
+    }
+    .lc-list li::before {
+      content: '●'; position: absolute; left: 0; top: 1px; font-size: 7px; color: var(--card-accent, #38bdf8);
+    }
+    .lc-list li strong { color: #ffffff; font-weight: 700; }
+    .uvp-card > div:not(.lc-card-title) { text-align: justify; text-justify: inter-word; }
+
+    /* ── REVENUE STREAMS SHOWCASE (SECTION 06) ── */
+    .rev-diagram-card {
+      background: var(--bg-card); border: 1px solid rgba(45, 212, 191, 0.3);
+      border-radius: var(--r); padding: 24px; margin-bottom: 28px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .diagram-hdr {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
+      flex-wrap: wrap; gap: 10px;
+    }
+    .dh-left { display: flex; align-items: center; gap: 12px; }
+    .dh-sub { font-family: var(--mono); font-size: 10px; color: var(--teal); text-transform: uppercase; letter-spacing: .1em; font-weight: 700; }
+    .dh-title { font-size: 16px; font-weight: 700; color: var(--txt); }
+    .dh-right { display: flex; align-items: center; gap: 10px; }
+    .dh-tag {
+      font-family: var(--mono); font-size: 11px; color: var(--teal);
+      background: rgba(45, 212, 191, 0.1); border: 1px solid rgba(45, 212, 191, 0.25);
+      padding: 4px 10px; border-radius: 8px;
+    }
+    .zoom-btn {
+      background: rgba(45, 212, 191, 0.14); border: 1px solid rgba(45, 212, 191, 0.35);
+      color: #ffffff; font-family: var(--mono); font-size: 11px; font-weight: 600;
+      padding: 7px 14px; border-radius: 8px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px; transition: all .2s;
+    }
+    .zoom-btn:hover {
+      background: rgba(45, 212, 191, 0.25); border-color: var(--teal);
+      box-shadow: 0 0 14px rgba(45, 212, 191, 0.3);
+    }
+
+    .diagram-canvas {
+      background: #fbf7f0; border-radius: 12px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      text-align: center; padding: 14px 18px;
+    }
+    .diagram-canvas img {
+      width: 100%; max-width: 826px; height: auto; display: block; margin: 0 auto;
+      border-radius: 6px; cursor: zoom-in; transition: transform .3s ease;
+    }
+    .diagram-ftr {
+      display: flex; justify-content: space-between; align-items: center; margin-top: 14px;
+      font-size: 12px; color: var(--txt2); font-family: var(--mono); flex-wrap: wrap; gap: 8px;
+    }
+
+    .overview-box {
+      background: linear-gradient(135deg, rgba(45, 212, 191, 0.1), rgba(56, 189, 248, 0.06));
+      border: 1px solid rgba(45, 212, 191, 0.28); border-radius: var(--r);
+      padding: 28px 32px; margin-bottom: 28px; box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+    }
+    .ob-hdr {
+      font-family: var(--mono); font-size: 12px; color: var(--teal);
+      text-transform: uppercase; letter-spacing: .1em; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px; font-weight: 700;
+    }
+    .ob-text {
+      font-size: 15px; color: var(--txt); line-height: 1.85; text-align: justify; text-justify: inter-word;
+    }
+
+    .tier-pill {
+      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px;
+      display: inline-block; padding: 2px 8px; border-radius: 4px;
+    }
+    .tier-pill.teal  { background: rgba(45,212,191,0.12); color: var(--teal); border: 1px solid rgba(45,212,191,0.3); }
+    .tier-pill.blue  { background: rgba(56,189,248,0.12); color: var(--blue); border: 1px solid rgba(56,189,248,0.3); }
+    .tier-pill.amber { background: rgba(251,191,36,0.12); color: var(--amber); border: 1px solid rgba(251,191,36,0.3); }
+
+    /* ── CALLOUT INFO BOX ── */
+    .info-box {
+      background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-sm); padding: 20px 22px; font-size: 14px;
+      color: var(--txt2); line-height: 1.8; text-align: justify; text-justify: inter-word;
+    }
+    .info-box strong { color: var(--blue); }
+
+    /* ── HERO BRAND (SECTION 01) ── */
+    #s1 {
+      min-height: 86vh; display: flex; align-items: center; padding: 84px 24px;
+    }
+    .hero-by {
+      font-family: var(--mono); font-size: 12px; color: var(--blue);
+      letter-spacing: .22em; text-transform: uppercase; margin-bottom: 12px; font-weight: 700;
+    }
+    .hero-logo {
+      font-size: clamp(60px, 10vw, 110px); font-weight: 900; letter-spacing: -.05em; line-height: 1;
+      background: linear-gradient(125deg, #38bdf8 0%, #2dd4bf 45%, #fbbf24 85%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 22px;
+    }
+    .hero-sub {
+      font-size: clamp(17px, 2.3vw, 22px); color: var(--txt2); line-height: 1.6;
+      max-width: 680px; text-align: justify; text-justify: inter-word;
+    }
+    .hero-sub strong { color: var(--txt); }
+
+    /* ── BACK TO TOP ── */
+    #btt {
+      position: fixed; bottom: 28px; right: 28px; z-index: 200; width: 44px; height: 44px;
+      border-radius: 50%; background: var(--blue); border: none; cursor: pointer; display: none;
+      align-items: center; justify-content: center; font-size: 18px; color: #080c17; font-weight: 800;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4); transition: transform .2s, opacity .2s;
+    }
+    #btt.visible { display: flex; }
+    #btt:hover { transform: translateY(-3px); }
+
+    /* ── SPACING & UTILS ── */
+    .mt24 { margin-top: 24px; }
+
+    @media (max-width: 980px) {
+      .lc-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .lc-col-2 { grid-column: span 1; }
+      .lc-col-5 { grid-column: span 2; }
+      .g3, .g4 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .g2 { grid-template-columns: 1fr; }
+      section { padding: 60px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav id="topnav">
+  <div class="nav-inner">
+    <div class="nav-logo">D1ALERT</div>
+    <div class="nav-links">
+      <a href="#s1" class="active">01 Vision</a>
+      <a href="#s2">02 Problem</a>
+      <a href="#s3">03 Solution</a>
+      <a href="#s4">04 Market</a>
+      <a href="#s5">05 Lean Canvas</a>
+      <a href="#s6">06 Revenue Streams</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     01  VISION / TITLE
+══════════════════════════════════════════ -->
+<section id="s1">
+  <div class="wrap">
+    <div class="hero-by">QUANTA &bull; Executive Pitch Deck</div>
+    <div class="hero-logo">D1ALERT</div>
+    <div class="hero-sub" style="margin-bottom:0">
+      The Offline-First Emergency Alert System Built for the Philippines.<br>
+      <strong>No Wi-Fi. No Mobile Data. No Delay.</strong>
+    </div>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:32px;">
+      <div class="hero-pill"><span class="dot red"></span><strong>Offline Emergency System</strong></div>
+      <div class="hero-pill"><span class="dot blue"></span><strong>On-Device Edge AI</strong></div>
+      <div class="hero-pill"><span class="dot teal"></span><strong>SMS Gateway Pipeline</strong></div>
+      <div class="hero-pill"><span class="dot amber"></span><strong>Philippine Disaster Ready</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     02  THE PROBLEM
+══════════════════════════════════════════ -->
+<section id="s2">
+  <div class="wrap">
+    <div class="s-num">02 &mdash; The Problem</div>
+    <div class="chip c-red"><span class="chip-dot red"></span>Critical Gap &bull; 4 Pain Points</div>
+    <div class="s-title">Emergency Information Needs to Reach Responders<br><span class="hi-red">Quickly, Accurately,</span> and with Usable Location.</div>
+    <div class="s-body">
+      Emergency information needs to reach responders quickly, accurately, and with usable location information. <strong>D1ALERT is designed to reduce delays in the alert-to-dispatch process</strong>, particularly for citizens in high-risk and low-connectivity situations.
+    </div>
+    <div class="g2">
+      <div class="pain-block">
+        <div class="pb-title">
+          <div class="pb-num red">01</div>
+          <span>Delayed Emergency Reporting</span>
+        </div>
+        <ul>
+          <li>Citizens may be <strong>panicked, injured, unable to speak</strong>, or unable to clearly explain what is happening.</li>
+          <li>Dispatchers may need additional time to identify the emergency, determine the appropriate responder, and locate the incident.</li>
+          <li>This is especially critical during fires, accidents, medical emergencies, crimes, and disasters.</li>
+        </ul>
+      </div>
+      <div class="pain-block">
+        <div class="pb-title">
+          <div class="pb-num amber">02</div>
+          <span>Dependence on Internet-Based Communication</span>
+        </div>
+        <ul>
+          <li>Many emergency applications depend on mobile data, Wi-Fi, or cloud services.</li>
+          <li>Internet connectivity can become unreliable during typhoons, floods, earthquakes, power interruptions, and network congestion.</li>
+          <li><strong>Only 48.8% of Philippine households had internet access at home in 2024</strong>, according to the PSA cited in the concept note.</li>
+        </ul>
+      </div>
+      <div class="pain-block">
+        <div class="pb-title">
+          <div class="pb-num teal">03</div>
+          <span>Difficulty Providing an Exact Location</span>
+        </div>
+        <ul>
+          <li>During an emergency, a person may not know their exact address or may be too distressed to communicate it.</li>
+          <li>This can make it harder for responders to identify where assistance is needed.</li>
+        </ul>
+      </div>
+      <div class="pain-block">
+        <div class="pb-title">
+          <div class="pb-num violet">04</div>
+          <span>Difficulty Reporting During Silent or High-Risk Emergencies</span>
+        </div>
+        <ul>
+          <li>Victims of assault, robbery, stalking, or other active threats may be <strong>unable to safely speak</strong>.</li>
+          <li>Traditional voice-based reporting can be difficult or dangerous in these situations.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt24">
+      <div class="info-box" style="border-left: 4px solid var(--teal); background: rgba(15, 23, 42, 0.8);">
+        <strong style="color:var(--txt); font-size:15px;">Existing emergency communication methods can depend heavily on voice communication, internet connectivity, or manual reporting.</strong><br>
+        <span style="color:var(--teal); font-weight:700;">D1ALERT addresses the gap by combining:</span>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-top: 14px;">
+          <div class="feat-item"><span class="feat-dot blue"></span><strong>Offline AI processing</strong></div>
+          <div class="feat-item"><span class="feat-dot amber"></span><strong>Discreet physical-button activation</strong></div>
+          <div class="feat-item"><span class="feat-dot teal"></span><strong>Location fallback</strong></div>
+          <div class="feat-item"><span class="feat-dot blue"></span><strong>SMS-based emergency alerts</strong></div>
+          <div class="feat-item"><span class="feat-dot teal"></span><strong>Structured emergency information</strong></div>
+          <div class="feat-item"><span class="feat-dot violet"></span><strong>Human dispatcher validation</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     03  THE SOLUTION
+══════════════════════════════════════════ -->
+<section id="s3">
+  <div class="wrap">
+    <div class="s-num">03 &mdash; The Solution</div>
+    <div class="chip c-teal"><span class="chip-dot teal"></span>System Architecture</div>
+    <div class="s-title"><span class="hi-blue">D1ALERT</span> &mdash; Offline-First Emergency Alerts.<br>One Button. <span class="hi-teal">No Internet Required.</span></div>
+    <div class="s-body">
+      <strong>D1ALERT SYSTEM</strong> is an offline-first emergency alert system designed to help citizens report emergencies quickly, even when mobile data or Wi-Fi is unavailable. It addresses delayed reporting, communication difficulties, and location problems through a simple activation and discreet physical-button confirmation, followed by local processing using <em>YAMNet</em> for acoustic-event detection, <em>Vosk</em> for offline speech recognition, and an <em>MLP classifier</em> for preliminary emergency classification.
+      <br><br>
+      The system obtains the best available location and sends a <strong>structured SMS alert containing essential emergency information</strong> to an authorized emergency organization, where a <strong>dispatcher can validate the alert and determine the appropriate response</strong>.
+      <br><br>
+      What makes D1ALERT different is its combination of <strong>offline AI, discreet emergency activation, location fallback, and low-bandwidth SMS communication</strong> in one smartphone-based system. Its core AI processing does not depend on mobile data or Wi-Fi, making it useful in low-connectivity and high-risk situations. It also supports silent or duress situations and uses human dispatcher validation rather than allowing AI to make the final emergency-response decision.
+    </div>
+    <div class="divider-lbl">What makes D1ALERT different</div>
+    <ul class="bl">
+      <li><div class="bl-index blue">01</div><span><strong>Offline AI processing</strong> &mdash; Local processing using YAMNet for acoustic-event detection, Vosk for offline speech recognition, and an MLP classifier for preliminary emergency classification running on-device with zero cloud dependency.</span></li>
+      <li><div class="bl-index amber">02</div><span><strong>Discreet physical-button activation</strong> &mdash; Simple activation and discreet physical-button confirmation, designed for silent or duress situations where speaking is unsafe or impossible.</span></li>
+      <li><div class="bl-index teal">03</div><span><strong>Location fallback</strong> &mdash; Obtains the best available location coordinates even without live GPS or mobile data connectivity.</span></li>
+      <li><div class="bl-index blue">04</div><span><strong>SMS-based emergency alerts</strong> &mdash; Low-bandwidth SMS communication operating on standard cellular networks, delivering alerts during network congestion or disasters.</span></li>
+      <li><div class="bl-index teal">05</div><span><strong>Structured emergency information</strong> &mdash; Sends essential emergency payload, incident classification, and device coordinates directly to dispatchers.</span></li>
+      <li><div class="bl-index violet">06</div><span><strong>Human dispatcher validation</strong> &mdash; A dispatcher validates the alert and determines the appropriate response rather than allowing AI to make the final emergency-response decision.</span></li>
+    </ul>
+    <div class="divider-lbl">Alert Pipeline &mdash; 7 Steps</div>
+    <div class="flow">
+      <div class="flow-step"><div class="fs-dot">01</div><div><div class="fs-tag">Step 01 &bull; Activation</div><div class="fs-txt"><strong>Physical button pressed</strong> &mdash; Discreet, requires no speaking. Designed for victims of assault, stalking, or active threats who cannot safely vocalize.</div></div></div>
+      <div class="flow-step"><div class="fs-dot">02</div><div><div class="fs-tag">Step 02 &bull; Acoustic Detection</div><div class="fs-txt"><strong>YAMNet</strong> detects emergency audio events locally on-device. No API call, no internet connection required at any point.</div></div></div>
+      <div class="flow-step"><div class="fs-dot">03</div><div><div class="fs-tag">Step 03 &bull; Speech Recognition</div><div class="fs-txt"><strong>Vosk</strong> performs offline speech-to-text transcription &mdash; captures any verbal context the user is able to provide.</div></div></div>
+      <div class="flow-step"><div class="fs-dot">04</div><div><div class="fs-tag">Step 04 &bull; Classification</div><div class="fs-txt"><strong>MLP Classifier</strong> determines the preliminary emergency type (fire, medical, crime, disaster, etc.) entirely on-device with no cloud dependency.</div></div></div>
+      <div class="flow-step"><div class="fs-dot">05</div><div><div class="fs-tag">Step 05 &bull; Location Fallback</div><div class="fs-txt"><strong>Best-available location</strong> obtained via GPS fallback system. Works even in low-signal and no-data environments.</div></div></div>
+      <div class="flow-step"><div class="fs-dot">06</div><div><div class="fs-tag">Step 06 &bull; SMS Gateway</div><div class="fs-txt"><strong>Structured SMS</strong> containing emergency type, location coordinates, and device ID is sent to the authorized emergency organization dispatcher portal.</div></div></div>
+      <div class="flow-step"><div class="fs-dot">07</div><div><div class="fs-tag">Step 07 &bull; Human Dispatch</div><div class="fs-txt"><strong>Human dispatcher validates</strong> the alert and determines the appropriate response. AI supports &mdash; a trained human decides and dispatches the responder.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     04  TARGET MARKET
+══════════════════════════════════════════ -->
+<section id="s4">
+  <div class="wrap">
+    <div class="s-num">04 &mdash; Target Market</div>
+    <div class="chip c-amber"><span class="chip-dot amber"></span>Demographics &amp; Sectors</div>
+    <div class="s-title">Designed for Citizens Facing Crises.<br><span class="hi-amber">Tailored for Emergency Organizations</span> as Responders.</div>
+    <div class="s-body">
+      <strong>D1ALERT</strong> is designed for citizens who may need immediate emergency assistance, particularly those experiencing medical emergencies, accidents, fires, flooding, disasters, crime, or violence. It is especially relevant to people in rural, coastal, mountainous, disaster-prone, and geographically isolated areas where internet connectivity may be limited or unreliable. The system also supports people in silent or high-risk situations, such as victims of assault, robbery, stalking, or other emergencies where speaking may not be safe.
+    </div>
+    <div class="g4">
+      <div class="seg-c" style="border-top:3px solid var(--red);">
+        <div class="sc-num red">01</div>
+        <div class="sc-lbl" style="color:var(--red);">01 &mdash; CITIZENS</div>
+        <div class="target-pills">
+          <span class="pill-tag">Medical emergencies</span>
+          <span class="pill-tag">Accidents</span>
+          <span class="pill-tag">Fire</span>
+          <span class="pill-tag">Crime</span>
+          <span class="pill-tag">Disasters</span>
+        </div>
+        <div class="sc-txt">Citizens who may need immediate emergency assistance, particularly those experiencing <strong>medical emergencies, accidents, fires, flooding, disasters, crime, or violence</strong>.</div>
+      </div>
+      <div class="seg-c" style="border-top:3px solid var(--amber);">
+        <div class="sc-num amber">02</div>
+        <div class="sc-lbl" style="color:var(--amber);">02 &mdash; LOW-CONNECTIVITY COMMUNITIES</div>
+        <div class="target-pills">
+          <span class="pill-tag">Rural</span>
+          <span class="pill-tag">Coastal</span>
+          <span class="pill-tag">Mountainous</span>
+          <span class="pill-tag">GIDA</span>
+          <span class="pill-tag">Disaster-prone</span>
+        </div>
+        <div class="sc-txt">People in <strong>rural, coastal, mountainous, disaster-prone, and geographically isolated areas (GIDA)</strong> where internet connectivity may be limited or unreliable.</div>
+      </div>
+      <div class="seg-c" style="border-top:3px solid var(--blue);">
+        <div class="sc-num blue">03</div>
+        <div class="sc-lbl" style="color:var(--blue);">03 &mdash; EMERGENCY ORGANIZATIONS</div>
+        <div class="target-pills">
+          <span class="pill-tag">LGUs</span>
+          <span class="pill-tag">LDRRMOs</span>
+          <span class="pill-tag">PNP</span>
+          <span class="pill-tag">BFP</span>
+          <span class="pill-tag">Health/Ambulance</span>
+        </div>
+        <div class="sc-txt">Institutional responders &mdash; <strong>LGUs, LDRRMOs, PNP, BFP, and emergency health services</strong> receiving structured, validated alert payloads with GPS coordinates.</div>
+      </div>
+      <div class="seg-c" style="border-top:3px solid var(--violet);">
+        <div class="sc-num violet">04</div>
+        <div class="sc-lbl" style="color:var(--violet);">04 &mdash; HIGH-RISK USERS</div>
+        <div class="target-pills">
+          <span class="pill-tag">Silent emergencies</span>
+          <span class="pill-tag">Assault</span>
+          <span class="pill-tag">Robbery</span>
+          <span class="pill-tag">Stalking</span>
+          <span class="pill-tag">Duress</span>
+        </div>
+        <div class="sc-txt">People in silent or high-risk situations, such as <strong>victims of assault, robbery, stalking, or duress</strong> where speaking or looking at a phone screen is unsafe, enabled by physical-button activation.</div>
+      </div>
+    </div>
+    <div class="mt24">
+      <div class="info-box" style="border-left: 4px solid var(--blue); background: rgba(15, 23, 42, 0.8);">
+        <div style="font-family:var(--mono); font-size:11px; font-weight:700; color:var(--blue); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+          ORGANIZATIONAL TARGET &bull; Responders &amp; Customers
+        </div>
+        <div style="margin-bottom:12px; color:var(--txt); font-size:14px; line-height:1.75; text-align:justify; text-justify:inter-word;">
+          On the organizational side, D1ALERT is intended for <strong>LGUs, LDRRMOs, PNP units, BFP stations, health and ambulance services, campus-security organizations, and authorized private emergency centers</strong> that can receive, validate, and route emergency alerts.
+        </div>
+        <div style="color:var(--txt2); font-size:14px; line-height:1.75; text-align:justify; text-justify:inter-word;">
+          <strong>These customers are a good fit because</strong> D1ALERT is specifically designed to provide structured emergency information, available location data, and preliminary incident classification while complementing existing emergency-response services.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     05  BUSINESS MODEL & LEAN CANVAS
+══════════════════════════════════════════ -->
+<section id="s5">
+  <div class="wrap">
+    <div class="s-num">05 &mdash; Business Model &amp; Lean Canvas</div>
+    <div class="chip c-blue"><span class="chip-dot blue"></span>Strategic Framework</div>
+    <div class="s-title">D1ALERT <span class="hi-blue">Lean Canvas Framework</span><br>12 Key Operational &amp; Business Blocks.</div>
+    <div class="s-body">
+      A comprehensive 12-point Lean Canvas mapping of D1ALERT&rsquo;s problem space, on-device AI solution, unique value proposition, customer segments, channels, cost drivers, and sustainable institutional revenue model.
+    </div>
+
+    <div class="lc-tab-container">
+      <!-- VIEW SWITCHER -->
+      <div class="lc-view-switcher">
+        <button id="btn-lc-table" class="lc-view-btn active" onclick="setLcView('table')">
+          <span class="btn-dot"></span> Official 12-Block Table View
+        </button>
+        <button id="btn-lc-board" class="lc-view-btn" onclick="setLcView('board')">
+          <span class="btn-dot"></span> Poster Board View
+        </button>
+      </div>
+
+      <!-- ── VIEW 1: OFFICIAL LEAN CANVAS TABLE (12 ITEMS EXACT CONTENT) ── -->
+      <div id="lc-view-table" class="lc-table-wrap">
+        <div class="lc-banner">
+          D1ALERT &mdash; LEAN CANVAS
+        </div>
+        <table class="lc-official-table">
+          <thead>
+            <tr>
+              <th style="width:260px;">LEAN CANVAS BLOCK</th>
+              <th>D1ALERT DETAILS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="lc-col-name">
+                <div class="lc-badge-tag">
+                  <span class="lc-block-badge c-red">01</span>
+                  <span>1. Problem</span>
+                </div>
+              </td>
+              <td class="lc-col-body">
+                Delayed emergency reporting; dependence on internet-based communication; difficulty providing an exact location; difficulty reporting during silent or high-risk emergencies.
+              </td>
+            </tr>
+            <tr>
+              <td class="lc-col-name">
+                <div class="lc-badge-tag">
+                  <span class="lc-block-badge c-teal">02</span>
+                  <span>2. Solution</span>
+                </div>
+              </td>
+              <td class="lc-col-body">
+                An offline-first emergency alert system using a physical-button activation, offline AI (YAMNet, Vosk, MLP), location fallback, and SMS emergency alerts sent to authorized emergency organizations for dispatcher validation.
+              </td>
+            </tr>
+            <tr>
+              <td class="lc-col-name">
+                <div class="lc-badge-tag">
+                  <span class="lc-block-badge c-amber">03</span>
+                  <span>3. Unique Value Proposition</span>
+                </div>
+              </td>
+              <td class="lc-col-body">
+                &ldquo;D1ALERT provides a fast, structured, discreet, and location-aware emergency reporting channel that can perform core processing without mobile data or Wi-Fi.&rdquo; It combines offline AI, physical-button activation, location acquisition, and SMS.
+              </td>
+            </tr>
+            <tr>
+              <td class="lc-col-name">
+                <div class="lc-badge-tag">
+                  <span class="lc-block-badge c-violet">04</span>
+                  <span>4. Unfair Advantage</span>
+                </div>
+              </td>
+              <td class="lc-col-body">
+                The combination of offline AI + discreet emergency activation + location fallback + low-bandwidth SMS in one smartphone-based system, with human dispatcher validation.
+              </td>
+            </tr>
+            <tr>
+              <td class="lc-col-name">
+                <div class="lc-badge-tag">
+                  <span class="lc-block-badge c-blue">05</span>
+                  <span>5. Customer Segment</span>
+                </div>
+              </td>
+              <td class="lc-col-body">
+                Primary users: citizens experiencing medical emergencies, accidents, fires, disasters, crime, or silent/high-risk situations. Organizational customers: LGUs, LDRRMOs, PNP, BFP, health services, campuses, and authorized private emergency centers. Especially relevant to rural, coastal, mountainous, GIDA, and low-connectivity communities.
+              </td>
+            </tr>
+            <tr>
+              <td class="lc-col-name">
+                <div class="lc-badge-tag">
+                  <span class="lc-block-badge c-pink">06</span>
+                  <span>6. Existing Alternatives</span>
+                </div>
+              </td>
+              <td class="lc-col-body">
+                Existing emergency communication methods can depend heavily on voice communication, internet connectivity, or manual reporting.
+              </td>
+            </tr>
+            <tr>
+              <td class="lc-col-name">
+                <div class="lc-badge-tag">
+                  <span class="lc-block-badge c-sky">07</span>
+                  <span>7. Key Metrics</span>
+                </div>
+              </td>
+              <td class="lc-col-body">
+                Alert-to-dispatch delays, emergency simulations, alert processing, and organizational onboarding.
+              </td>
+            </tr>
+            <tr>
+              <td class="lc-col-name">
+                <div class="lc-badge-tag">
+                  <span class="lc-block-badge c-orange">08</span>
+                  <span>8. High-Level Concept</span>
+                </div>
+              </td>
+              <td class="lc-col-body">
+                Offer an offline-first emergency alert system that combines offline AI, discreet physical-button activation, location fallback, and SMS to provide structured emergency information to responders.
+              </td>
+            </tr>
+            <tr>
+              <td class="lc-col-name">
+                <div class="lc-badge-tag">
+                  <span class="lc-block-badge c-indigo">09</span>
+                  <span>9. Channels</span>
+                </div>
+              </td>
+              <td class="lc-col-body">
+                Official app stores/authorized distribution, direct organizational onboarding and pilot deployment, and SMS as the primary low-bandwidth alert channel.
+              </td>
+            </tr>
+            <tr>
+              <td class="lc-col-name">
+                <div class="lc-badge-tag">
+                  <span class="lc-block-badge c-emerald">10</span>
+                  <span>10. Early Adopters</span>
+                </div>
+              </td>
+              <td class="lc-col-body">
+                People in rural, coastal, mountainous, GIDA, disaster-prone, and low-connectivity areas, as well as people in silent/high-risk situations. Organizational users include LGUs, LDRRMOs, PNP, BFP, health/ambulance services, campuses, and authorized emergency centers.
+              </td>
+            </tr>
+            <tr>
+              <td class="lc-col-name">
+                <div class="lc-badge-tag">
+                  <span class="lc-block-badge c-rose">11</span>
+                  <span>11. Cost Structure</span>
+                </div>
+              </td>
+              <td class="lc-col-body">
+                Software and AI development, app maintenance, onboarding and pilot activities, dispatcher training, technical support, security updates, map-data maintenance, SMS charges, and app distribution.
+              </td>
+            </tr>
+            <tr>
+              <td class="lc-col-name">
+                <div class="lc-badge-tag">
+                  <span class="lc-block-badge c-green">12</span>
+                  <span>12. Revenue Streams</span>
+                </div>
+              </td>
+              <td class="lc-col-body">
+                <strong>LGU/Command-Center License: &#x20B1;120,000/year</strong>; annual <strong>private-sector subscriptions</strong>; <strong>one-time onboarding fees</strong>; <strong>additional fees for extended training, custom integrations, specialized support, and organization-specific requirements</strong>.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ── VIEW 2: POSTER BOARD VIEW (12 ITEMS INTEGRATED) ── -->
+      <div id="lc-view-board" class="lc-board" style="display:none; margin-top:0;">
+        <div class="lc-banner">D1ALERT &mdash; LEAN CANVAS BOARD</div>
+        <div class="lc-grid">
+
+          <!-- ── COL 1: 1. PROBLEM & 6. EXISTING ALTERNATIVES ── -->
+          <div class="lc-card lc-col-2" style="--card-accent:#f87171;">
+            <div class="lc-card-title"><span class="board-badge">01</span> 1. Problem</div>
+            <ul class="lc-list" style="margin-bottom:12px;">
+              <li>Delayed emergency reporting.</li>
+              <li>Dependence on internet-based communication.</li>
+              <li>Difficulty providing an exact location.</li>
+              <li>Difficulty reporting during silent or high-risk emergencies.</li>
+            </ul>
+            <div class="lc-card-title" style="border-top:1px solid rgba(255,255,255,0.08); padding-top:8px; margin-top:8px;"><span class="board-badge">06</span> 6. Existing Alt.</div>
+            <ul class="lc-list">
+              <li>Existing emergency communication methods can depend heavily on voice communication, internet connectivity, or manual reporting.</li>
+            </ul>
+          </div>
+
+          <!-- ── COL 2: 2. SOLUTION & 7. KEY METRICS ── -->
+          <div class="lc-card lc-col-2" style="--card-accent:#2dd4bf;">
+            <div class="lc-card-title"><span class="board-badge">02</span> 2. Solution</div>
+            <ul class="lc-list" style="margin-bottom:12px;">
+              <li>Offline-first emergency alert system using physical-button activation.</li>
+              <li>Offline AI (YAMNet, Vosk, MLP) &amp; location fallback.</li>
+              <li>SMS emergency alerts sent to authorized organizations for dispatcher validation.</li>
+            </ul>
+            <div class="lc-card-title" style="border-top:1px solid rgba(255,255,255,0.08); padding-top:8px; margin-top:8px;"><span class="board-badge">07</span> 7. Key Metrics</div>
+            <ul class="lc-list">
+              <li>Alert-to-dispatch delays.</li>
+              <li>Emergency simulations &amp; alert processing.</li>
+              <li>Organizational onboarding rate.</li>
+            </ul>
+          </div>
+
+          <!-- ── COL 3: 3. UNIQUE VALUE PROP & 8. HIGH-LEVEL CONCEPT ── -->
+          <div class="lc-card lc-col-2 uvp-card" style="--card-accent:#fbbf24;">
+            <div class="lc-card-title" style="color:#ffffff;"><span class="board-badge">03</span> 3. Value Prop.</div>
+            <div style="font-size:12px; line-height:1.55; color:#ffffff; margin-bottom:10px;">
+              <strong>&ldquo;D1ALERT provides a fast, structured, discreet, and location-aware emergency reporting channel that can perform core processing without mobile data or Wi-Fi.&rdquo;</strong>
+            </div>
+            <div style="font-size:11px; line-height:1.5; color:#93c5fd; margin-bottom:12px;">
+              Combines offline AI, physical-button activation, location acquisition, and SMS.
+            </div>
+            <div class="lc-card-title" style="border-top:1px solid rgba(255,255,255,0.08); padding-top:8px; margin-top:8px;"><span class="board-badge">08</span> 8. Concept</div>
+            <div style="font-size:11px; line-height:1.5; color:#cbd5e1;">
+              Offer an offline-first emergency alert system combining offline AI, discreet button activation, location fallback, and SMS to provide structured emergency information.
+            </div>
+          </div>
+
+          <!-- ── COL 4: 4. UNFAIR ADVANTAGE & 9. CHANNELS ── -->
+          <div class="lc-card lc-col-2" style="--card-accent:#a78bfa;">
+            <div class="lc-card-title"><span class="board-badge">04</span> 4. Unfair Adv.</div>
+            <ul class="lc-list" style="margin-bottom:12px;">
+              <li>Combination of offline AI + discreet activation + location fallback + low-bandwidth SMS in one smartphone-based system, with human dispatcher validation.</li>
+            </ul>
+            <div class="lc-card-title" style="border-top:1px solid rgba(255,255,255,0.08); padding-top:8px; margin-top:8px;"><span class="board-badge">09</span> 9. Channels</div>
+            <ul class="lc-list">
+              <li>Official app stores &amp; authorized distribution.</li>
+              <li>Direct organizational onboarding &amp; pilot deployment.</li>
+              <li>SMS as primary low-bandwidth alert channel.</li>
+            </ul>
+          </div>
+
+          <!-- ── COL 5: 5. CUSTOMER SEGMENTS & 10. EARLY ADOPTERS ── -->
+          <div class="lc-card lc-col-2" style="--card-accent:#38bdf8;">
+            <div class="lc-card-title"><span class="board-badge">05</span> 5. Customer Seg.</div>
+            <ul class="lc-list" style="margin-bottom:12px;">
+              <li><strong>Primary users:</strong> Citizens facing medical, accidents, fires, disasters, crime, or silent/high-risk situations.</li>
+              <li><strong>Organizational:</strong> LGUs, LDRRMOs, PNP, BFP, health, campuses, private centers.</li>
+              <li><strong>Geography:</strong> Rural, coastal, mountainous, GIDA, low-connectivity.</li>
+            </ul>
+            <div class="lc-card-title" style="border-top:1px solid rgba(255,255,255,0.08); padding-top:8px; margin-top:8px;"><span class="board-badge">10</span> 10. Early Adopters</div>
+            <ul class="lc-list">
+              <li>People in rural, coastal, mountainous, GIDA, disaster-prone, low-connectivity, and silent/high-risk situations.</li>
+              <li>LGUs, LDRRMOs, PNP, BFP, health/ambulance, campuses, authorized emergency centers.</li>
+            </ul>
+          </div>
+
+          <!-- ── BOTTOM ROW: 11. COST STRUCTURE & 12. REVENUE STREAMS ── -->
+          <div class="lc-card lc-col-5" style="--card-accent:#fb7185;">
+            <div class="lc-card-title"><span class="board-badge">11</span> 11. Cost Structure</div>
+            <ul class="lc-list">
+              <li>Software and AI development &amp; app maintenance.</li>
+              <li>Onboarding and pilot activities, dispatcher training, and technical support.</li>
+              <li>Security updates, map-data maintenance, SMS charges, and app distribution.</li>
+            </ul>
+          </div>
+
+          <div class="lc-card lc-col-5" style="--card-accent:#2dd4bf;">
+            <div class="lc-card-title"><span class="board-badge">12</span> 12. Revenue Streams</div>
+            <ul class="lc-list">
+              <li><strong>LGU/Command-Center License:</strong> <strong style="color:var(--amber);">&#x20B1;120,000 / year</strong>.</li>
+              <li><strong>Private-Sector Subscriptions:</strong> Annual subscriptions for enterprise/campuses.</li>
+              <li><strong>One-Time Onboarding Fees:</strong> Setup, dispatcher training, and pilot simulations.</li>
+              <li><strong>Additional Fees:</strong> Extended training, custom integrations, specialized support, and organization-specific requirements.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     06  REVENUE STREAMS (FINAL SECTION)
+══════════════════════════════════════════ -->
+<section id="s6">
+  <div class="wrap">
+    <div class="s-num">06 &mdash; Revenue Streams</div>
+    <div class="chip c-teal"><span class="chip-dot teal"></span>Commercial Strategy</div>
+    <div class="s-title">Institutional Licensing Model &mdash;<br><span class="hi-teal">&#x20B1;120,000/Year LGU Pricing</span> While Keeping Citizens Free.</div>
+    
+    <!-- ── REVENUE STREAMS INFOGRAPHIC DIAGRAM SHOWCASE ── -->
+    <div class="rev-diagram-card">
+      <div class="diagram-hdr">
+        <div class="dh-left">
+          <span class="chip-dot teal"></span>
+          <div>
+            <div class="dh-sub">COMMERCIAL ECOSYSTEM</div>
+            <div class="dh-title">Revenue Streams &amp; Commercial Pipeline Architecture</div>
+          </div>
+        </div>
+        <div class="dh-right">
+          <span class="dh-tag">Official Framework</span>
+          <button onclick="openImageModal('revenue-streams-diagram.png')" class="zoom-btn">
+            View Fullscreen
+          </button>
+        </div>
+      </div>
+
+      <!-- Diagram Display Canvas -->
+      <div class="diagram-canvas">
+        <img src="revenue-streams-diagram.png" alt="D1ALERT Revenue Streams Architecture and Commercial Ecosystem" onclick="openImageModal(this.src)" title="Click to view full image"/>
+      </div>
+      
+      <div class="diagram-ftr">
+        <span>B2G Institutional Tier &bull; B2B Enterprise Subscriptions &bull; 100% Free Public Citizen App</span>
+        <span style="color:var(--txt3);">Click diagram to open high-res lightbox</span>
+      </div>
+    </div>
+
+    <!-- Hero Box with Narrative text -->
+    <div class="overview-box">
+      <div class="ob-hdr">
+        <span class="chip-dot teal"></span> Revenue Model Overview
+      </div>
+      <div class="ob-text">
+        D1ALERT will generate revenue primarily through its services for LGUs, command centers, and private organizations, while citizens can use the emergency-reporting app for free. The main source of income will be the <strong>LGU/Command-Center License, which is priced at &#x20B1;120,000 per year</strong>, along with <strong>annual subscriptions for private-sector organizations</strong>. Additional revenue can come from <strong>one-time onboarding fees, extended training, custom integrations, specialized technical support, and organization-specific requirements</strong>. The pricing strategy follows a licensing and subscription model, allowing organizations to pay for continued access and support while keeping the citizen application free. The file does not provide a specific sales forecast, but future sales can be based on the number of LGUs, command centers, and private organizations that are successfully onboarded each year. Alternative revenue models include private-sector subscriptions and additional fees for training, integrations, and specialized support.
+      </div>
+    </div>
+
+    <!-- Structured Breakdown Grid -->
+    <div class="g3">
+      <div class="card" style="border-top:3px solid var(--teal);padding:24px 20px;">
+        <div class="tier-pill teal">TIER 01 &bull; B2G INSTITUTIONAL</div>
+        <div style="font-size:16px;font-weight:700;color:var(--txt);margin-bottom:8px;">LGU Command Center</div>
+        <div style="font-size:26px;font-weight:800;color:var(--teal);margin-bottom:10px;font-family:var(--mono);">&#x20B1;120,000 <span style="font-size:13px;font-weight:400;color:var(--txt3);">/ year</span></div>
+        <div style="font-size:13px;color:var(--txt2);line-height:1.65;text-align:justify;text-justify:inter-word;">
+          Priced per municipality (&asymp; &#x20B1;10,000/mo). Designed to fit directly into the statutory Local Disaster Risk Reduction and Management Fund (LDRRMF) under RA 10121.
+        </div>
+      </div>
+
+      <div class="card" style="border-top:3px solid var(--blue);padding:24px 20px;">
+        <div class="tier-pill blue">TIER 02 &bull; B2B ENTERPRISE</div>
+        <div style="font-size:16px;font-weight:700;color:var(--txt);margin-bottom:8px;">Private-Sector Annual</div>
+        <div style="font-size:26px;font-weight:800;color:var(--blue);margin-bottom:10px;font-family:var(--mono);">Annual Tier <span style="font-size:13px;font-weight:400;color:var(--txt3);">Recurring</span></div>
+        <div style="font-size:13px;color:var(--txt2);line-height:1.65;text-align:justify;text-justify:inter-word;">
+          Recurring enterprise subscriptions tailored for universities, private hospitals, large commercial hubs, industrial zones, and transport security operations.
+        </div>
+      </div>
+
+      <div class="card" style="border-top:3px solid var(--amber);padding:24px 20px;">
+        <div class="tier-pill amber">TIER 03 &bull; SERVICES &amp; SLA</div>
+        <div style="font-size:16px;font-weight:700;color:var(--txt);margin-bottom:8px;">Onboarding &amp; Custom</div>
+        <div style="font-size:26px;font-weight:800;color:var(--amber);margin-bottom:10px;font-family:var(--mono);">Value-Add <span style="font-size:13px;font-weight:400;color:var(--txt3);">One-Time &amp; SLA</span></div>
+        <div style="font-size:13px;color:var(--txt2);line-height:1.65;text-align:justify;text-justify:inter-word;">
+          One-time dispatcher setup, physical-button deployment, emergency drill simulation certifications, specialized custom integrations, and SLA maintenance.
+        </div>
+      </div>
+    </div>
+
+    <!-- Free Citizen App Callout Box -->
+    <div class="mt24">
+      <div class="info-box" style="border-left: 4px solid var(--teal); background: rgba(15, 23, 42, 0.8);">
+        <strong>Public-Interest Guarantee:</strong> Citizens use the emergency-reporting app 100% free of charge. Keeping citizen access completely free eliminates any financial friction during life-threatening crises, maximizing public adoption and ensuring responders receive actionable, structured data from anyone in distress.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     STASHED SECTIONS (CURRENT PRESENTATION ENDS AT REVENUE STREAMS)
+══════════════════════════════════════════════════════════════ -->
+<!--
+<section id="s-gtm-stashed">
+  ... GTM Strategy stashed for future use ...
+</section>
+<section id="s-competition-stashed">
+  ... Competitive Landscape stashed for future use ...
+</section>
+<section id="s-team-stashed">
+  ... The Team stashed for future use ...
+</section>
+<section id="s-ask-stashed">
+  ... The Ask & Milestones stashed for future use ...
+</section>
+-->
+
+<!-- Back to top -->
+<button id="btt" onclick="scrollTo({top:0,behavior:'smooth'})" title="Back to top">&#x2191;</button>
+
+<script>
+  // Active nav highlight on scroll
+  const secs = [...document.querySelectorAll('section[id]')];
+  const links = [...document.querySelectorAll('.nav-links a')];
+  const btt = document.getElementById('btt');
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const a = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  secs.forEach(s => obs.observe(s));
+
+  // Back to top button
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // Lean Canvas view switcher
+  function setLcView(v) {
+    const t = document.getElementById('lc-view-table');
+    const b = document.getElementById('lc-view-board');
+    const bt = document.getElementById('btn-lc-table');
+    const bb = document.getElementById('btn-lc-board');
+    if (v === 'table') {
+      t.style.display = 'block';
+      b.style.display = 'none';
+      bt.classList.add('active');
+      bb.classList.remove('active');
+    } else {
+      t.style.display = 'none';
+      b.style.display = 'block';
+      bb.classList.add('active');
+      bt.classList.remove('active');
+    }
+  }
+
+  // Lightbox Modal for Diagram
+  function openImageModal(src) {
+    const modal = document.getElementById('imageModal');
+    const img = document.getElementById('modalImg');
+    img.src = src;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeImageModal();
+  });
+</script>
+
+<!-- Fullscreen Image Modal / Lightbox -->
+<div id="imageModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(4,9,18,0.92); backdrop-filter:blur(10px); padding:20px; align-items:center; justify-content:center; cursor:zoom-out;" onclick="closeImageModal()">
+  <div style="position:relative; max-width:96vw; max-height:92vh; display:flex; flex-direction:column; align-items:center;" onclick="event.stopPropagation()">
+    <button onclick="closeImageModal()" style="position:absolute; top:-16px; right:-16px; background:#f87171; color:#fff; border:none; width:36px; height:36px; border-radius:50%; font-size:20px; font-weight:700; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center; z-index:10;" title="Close">&times;</button>
+    <img id="modalImg" src="" alt="Enlarged Diagram" style="max-width:100%; max-height:86vh; object-fit:contain; border-radius:12px; border:2px solid rgba(255,255,255,0.2); box-shadow:0 24px 60px rgba(0,0,0,0.8); background:#fbf7f0;"/>
+    <div style="margin-top:12px; font-family:var(--mono); font-size:12px; color:var(--txt2);">Click anywhere outside or press ESC to return to presentation</div>
+  </div>
+</div>
+</body>
+</html>
