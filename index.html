@@ -120,7 +120,7 @@
     .wrap { max-width: var(--max); margin: 0 auto; }
 
     /* Wide layout for showcase sections */
-    #s2 .wrap, #s2b .wrap, #s3 .wrap, #s4 .wrap, #s5 .wrap, #s6 .wrap { max-width: 1260px; }
+    #s2 .wrap, #s2b .wrap, #s3 .wrap, #s4 .wrap, #s5 .wrap, #s6 .wrap, #s7 .wrap { max-width: 1260px; }
 
     /* ── SECTION HEADER & METRICS ── */
     .s-num {
@@ -520,6 +520,98 @@
     #btt.visible { display: flex; }
     #btt:hover { transform: translateY(-3px); }
 
+    /* ── TEAM SECTION (SECTION 08) ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 24px;
+    }
+    .team-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bord);
+      border-radius: var(--r);
+      padding: 30px 22px 26px;
+      text-align: center;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px -6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .team-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.45);
+      box-shadow: 0 20px 42px -6px rgba(0,0,0,0.6), 0 0 20px rgba(56, 189, 248, 0.15);
+    }
+    .team-avatar-wrap {
+      width: 154px;
+      height: 154px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      padding: 4px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.8), rgba(45, 212, 191, 0.8));
+      box-shadow: 0 10px 26px rgba(0,0,0,0.4), 0 0 16px rgba(56, 189, 248, 0.25);
+      cursor: zoom-in;
+      transition: transform .3s ease, box-shadow .3s ease;
+      flex-shrink: 0;
+    }
+    .team-avatar-wrap:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 24px rgba(45, 212, 191, 0.4);
+    }
+    .team-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      background: #1e293b;
+    }
+    .team-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+      letter-spacing: -.01em;
+    }
+    .team-role {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: 12px;
+      background: rgba(45, 212, 191, 0.1);
+      border: 1px solid rgba(45, 212, 191, 0.28);
+      padding: 4px 12px;
+      border-radius: 100px;
+      display: inline-block;
+    }
+    .team-desc {
+      font-size: 13px;
+      color: var(--txt2);
+      line-height: 1.7;
+      text-align: justify;
+      text-justify: inter-word;
+      margin-top: 4px;
+    }
+    .team-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
     /* ── SPACING & UTILS ── */
     .mt20 { margin-top: 20px; }
     .mt24 { margin-top: 24px; }
@@ -627,6 +719,14 @@
 
       /* Back to top button */
       #btt { bottom: 18px; right: 18px; width: 40px; height: 40px; font-size: 16px; }
+
+      /* Team Section on Mobile */
+      .team-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 16px; }
+      .team-card { padding: 22px 16px 20px; }
+      .team-avatar-wrap { width: 130px; height: 130px; margin-bottom: 16px; }
+      .team-name { font-size: 16.5px; }
+      .team-role { font-size: 10px; padding: 4px 10px; }
+      .team-desc { font-size: 12.5px; }
     }
 
     @media (max-width: 480px) {
@@ -645,6 +745,7 @@
       .showcase-card { padding: 12px 10px; }
       .zoom-btn { width: 100%; justify-content: center; }
       .showcase-right { width: 100%; justify-content: space-between; }
+      .team-avatar-wrap { width: 118px; height: 118px; }
     }
   </style>
 </head>
@@ -662,6 +763,7 @@
       <a href="#s4">05 Market</a>
       <a href="#s5">06 Lean Canvas</a>
       <a href="#s6">07 Revenue Streams</a>
+      <a href="#s7">08 My Team</a>
     </div>
   </div>
 </nav>
@@ -1250,6 +1352,72 @@
     <div class="mt24">
       <div class="info-box" style="border-left: 4px solid var(--teal); background: rgba(15, 23, 42, 0.8);">
         <strong>Public-Interest Guarantee:</strong> Citizens use the emergency-reporting app 100% free of charge. Keeping citizen access completely free eliminates any financial friction during life-threatening crises, maximizing public adoption and ensuring responders receive actionable, structured data from anyone in distress.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     08  FEATURED PROONENTS / MY TEAM (FINAL SECTION)
+══════════════════════════════════════════ -->
+<section id="s7">
+  <div class="wrap">
+    <div class="s-num">08 &mdash; Featured Proponents &bull; QUANTA</div>
+    <div class="chip c-teal"><span class="chip-dot teal"></span>Project Leadership &bull; Research &amp; Development</div>
+    <div class="s-title">Meet the Proponents Behind <span class="hi-blue">D1ALERT</span>.<br><span class="hi-teal">QUANTA Team</span> &mdash; Dedicated to Life-Saving Tech.</div>
+    <div class="s-body">
+      The dedicated research and engineering proponents behind D1ALERT, committed to developing accessible, offline-first emergency reporting solutions that empower vulnerable Philippine communities, bridge critical communication gaps, and protect human lives.
+    </div>
+
+    <!-- Team Cards Grid -->
+    <div class="team-grid">
+      <!-- Member 01: Charles Jericho H. Villapa -->
+      <div class="team-card">
+        <div class="team-avatar-wrap" onclick="openImageModal('team-charles.jpg')" title="Click to view portrait">
+          <img src="team-charles.jpg" alt="Charles Jericho H. Villapa" class="team-avatar"/>
+        </div>
+        <div class="team-name">Charles Jericho H. Villapa</div>
+        <div class="team-role">Project Proponent &bull; Lead Researcher</div>
+        <div class="team-desc">
+          Leading technical research, offline emergency architecture, edge AI acoustic detection integration, and core system design for the D1ALERT emergency platform.
+        </div>
+        <div class="team-badge"><span class="chip-dot blue"></span>QUANTA Research</div>
+      </div>
+
+      <!-- Member 02: Anthonette Mae A. Micate -->
+      <div class="team-card">
+        <div class="team-avatar-wrap" onclick="openImageModal('team-anthonette.jpg')" title="Click to view portrait">
+          <img src="team-anthonette.jpg" alt="Anthonette Mae A. Micate" class="team-avatar"/>
+        </div>
+        <div class="team-name">Anthonette Mae A. Micate</div>
+        <div class="team-role">Project Proponent &bull; Lead Researcher</div>
+        <div class="team-desc">
+          Spearheading user experience research, crisis scenario workflow analysis, and stakeholder coordination to ensure intuitive, life-saving accessibility for citizens.
+        </div>
+        <div class="team-badge"><span class="chip-dot teal"></span>QUANTA Operations</div>
+      </div>
+
+      <!-- Member 03: Kristoff Dave Cabag -->
+      <div class="team-card">
+        <div class="team-avatar-wrap" onclick="openImageModal('team-kristoff.jpg')" title="Click to view portrait">
+          <img src="team-kristoff.jpg" alt="Kristoff Dave Cabag" class="team-avatar"/>
+        </div>
+        <div class="team-name">Kristoff Dave Cabag</div>
+        <div class="team-role">Project Proponent &bull; Lead Researcher</div>
+        <div class="team-desc">
+          Overseeing data telemetry modeling, SMS fallback gateway engineering, and dispatcher validation protocols to guarantee rapid, high-reliability emergency routing.
+        </div>
+        <div class="team-badge"><span class="chip-dot amber"></span>QUANTA Engineering</div>
+      </div>
+    </div>
+
+    <!-- Team Commitment Callout -->
+    <div class="mt24">
+      <div class="info-box" style="border-left: 4px solid var(--teal); background: rgba(15, 23, 42, 0.8);">
+        <strong style="color:var(--txt); font-size:15px;">QUANTA Vision &amp; Proponent Commitment:</strong><br>
+        <span style="color:var(--txt2);">
+          As the project proponents of D1ALERT, our shared mission is to build robust, life-saving technology that functions without internet dependency. By combining on-device machine intelligence, physical-button activation, and SMS fallbacks, we are committed to making emergency reporting universally accessible across every municipality and barangay in the Philippines.
+        </span>
       </div>
     </div>
   </div>
