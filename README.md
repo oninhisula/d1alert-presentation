@@ -35,7 +35,10 @@
 
 ---
 
-## 🚀 Live Demo & Presentation
+## 🚀 Live Demo & Deployment
 
+* **Deploy to Vercel (1-Click):**  
+  [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Foninhisula%2Fd1alert-presentation)
 * **GitHub Pages Live Link:** [https://oninhisula.github.io/d1alert-presentation/](https://oninhisula.github.io/d1alert-presentation/)
 * **Local Run:** Open `index.html` in any modern web browser or serve via Apache/Nginx/Localhost.
+
