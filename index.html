@@ -120,7 +120,7 @@
     .wrap { max-width: var(--max); margin: 0 auto; }
 
     /* Wide layout for showcase sections */
-    #s3 .wrap, #s4 .wrap, #s5 .wrap, #s6 .wrap { max-width: 1260px; }
+    #s2 .wrap, #s2b .wrap, #s3 .wrap, #s4 .wrap, #s5 .wrap, #s6 .wrap { max-width: 1260px; }
 
     /* ── SECTION HEADER & METRICS ── */
     .s-num {
@@ -542,10 +542,11 @@
     <div class="nav-links">
       <a href="#s1" class="active">01 Vision</a>
       <a href="#s2">02 Problem</a>
-      <a href="#s3">03 Solution</a>
-      <a href="#s4">04 Market</a>
-      <a href="#s5">05 Lean Canvas</a>
-      <a href="#s6">06 Revenue Streams</a>
+      <a href="#s2b">03 Deep-Dive</a>
+      <a href="#s3">04 Solution</a>
+      <a href="#s4">05 Market</a>
+      <a href="#s5">06 Lean Canvas</a>
+      <a href="#s6">07 Revenue Streams</a>
     </div>
   </div>
 </nav>
@@ -571,15 +572,87 @@
 </section>
 
 <!-- ══════════════════════════════════════════
-     02  THE PROBLEM
+     02  THE PROBLEM OVERVIEW & PAIN INFOGRAPHIC
 ══════════════════════════════════════════ -->
 <section id="s2">
   <div class="wrap">
-    <div class="s-num">02 &mdash; The Problem</div>
-    <div class="chip c-red"><span class="chip-dot red"></span>Critical Gap &bull; 4 Pain Points</div>
-    <div class="s-title">Emergency Information Needs to Reach Responders<br><span class="hi-red">Quickly, Accurately,</span> and with Usable Location.</div>
+    <div class="s-num">02 &mdash; The Problem Overview</div>
+    <div class="chip c-red"><span class="chip-dot red"></span>Critical Emergency Gap &bull; 4 Core Pain Points</div>
+    <div class="s-title">Emergency Response in the Philippines:<br><span class="hi-red">4 Critical Pain Points</span> Threatening Citizen Survival</div>
     <div class="s-body">
-      Emergency information needs to reach responders quickly, accurately, and with usable location information. <strong>D1ALERT is designed to reduce delays in the alert-to-dispatch process</strong>, particularly for citizens in high-risk and low-connectivity situations.
+      Emergency information needs to reach responders quickly, accurately, and with usable location information. In crisis conditions, traditional communication channels break down due to panic, network loss, and physical danger. <strong>D1ALERT is engineered to resolve these 4 foundational pain points</strong>, eliminating delays in the alert-to-dispatch process across the Philippines.
+    </div>
+
+    <!-- Official Pain Points Infographic Showcase -->
+    <div class="showcase-card">
+      <div class="showcase-hdr">
+        <div class="showcase-left">
+          <span class="chip-dot red"></span>
+          <div>
+            <div class="showcase-sub">PROBLEM ARCHITECTURE</div>
+            <div class="showcase-title">Core Emergency Pain Points &amp; Critical Bottlenecks</div>
+          </div>
+        </div>
+        <div class="showcase-right">
+          <span class="showcase-tag">Official Slide</span>
+          <button onclick="openImageModal('pain-diagram.jpg')" class="zoom-btn">
+            View Fullscreen
+          </button>
+        </div>
+      </div>
+      <div class="showcase-canvas">
+        <img src="pain-diagram.jpg" alt="D1ALERT Core Pain Points Diagram" onclick="openImageModal(this.src)" title="Click to view fullscreen"/>
+      </div>
+      <div class="showcase-ftr">
+        <span>Delayed Reporting &bull; Internet Dependence &bull; Location Ambiguity &bull; Silent / High-Risk Emergencies</span>
+        <span>Click image to enlarge</span>
+      </div>
+    </div>
+
+    <!-- Quick-Scan Matrix -->
+    <div class="g2" style="margin-top:20px;">
+      <div class="card" style="padding:18px 22px; border-left:3px solid var(--red);">
+        <div style="font-size:11px; font-family:var(--mono); color:var(--red); font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px;">PAIN POINT 01</div>
+        <div style="font-size:16px; font-weight:700; color:var(--txt); margin-bottom:8px;">Delayed Emergency Reporting</div>
+        <div style="font-size:13px; color:var(--txt2); line-height:1.7; text-align:justify; text-justify:inter-word;">
+          In high-stress crises, callers experience panic, severe physical trauma, or disorientation, causing catastrophic delays during dispatch assessment.
+        </div>
+      </div>
+      <div class="card" style="padding:18px 22px; border-left:3px solid var(--amber);">
+        <div style="font-size:11px; font-family:var(--mono); color:var(--amber); font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px;">PAIN POINT 02</div>
+        <div style="font-size:16px; font-weight:700; color:var(--txt); margin-bottom:8px;">Dependence on Internet-Based Communication</div>
+        <div style="font-size:13px; color:var(--txt2); line-height:1.7; text-align:justify; text-justify:inter-word;">
+          Mobile data and Wi-Fi networks fail during storms, floods, and earthquakes. <strong>Only 48.8% of Philippine households</strong> have home internet (PSA 2024).
+        </div>
+      </div>
+      <div class="card" style="padding:18px 22px; border-left:3px solid var(--teal);">
+        <div style="font-size:11px; font-family:var(--mono); color:var(--teal); font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px;">PAIN POINT 03</div>
+        <div style="font-size:16px; font-weight:700; color:var(--txt); margin-bottom:8px;">Difficulty Providing an Exact Location</div>
+        <div style="font-size:13px; color:var(--txt2); line-height:1.7; text-align:justify; text-justify:inter-word;">
+          Victims in unfamiliar areas or remote barangays cannot describe street names or landmarks, causing responders to waste vital minutes searching.
+        </div>
+      </div>
+      <div class="card" style="padding:18px 22px; border-left:3px solid var(--violet);">
+        <div style="font-size:11px; font-family:var(--mono); color:var(--violet); font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px;">PAIN POINT 04</div>
+        <div style="font-size:16px; font-weight:700; color:var(--txt); margin-bottom:8px;">Silent or High-Risk Emergencies</div>
+        <div style="font-size:13px; color:var(--txt2); line-height:1.7; text-align:justify; text-justify:inter-word;">
+          Victims of domestic violence, burglary, robbery, assault, or stalking cannot speak aloud without escalating immediate physical danger.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     03  PROBLEM DEEP-DIVE & OPERATIONAL GAPS
+══════════════════════════════════════════ -->
+<section id="s2b">
+  <div class="wrap">
+    <div class="s-num">03 &mdash; Problem Deep-Dive &amp; Operational Gaps</div>
+    <div class="chip c-red"><span class="chip-dot red"></span>Detailed Breakdown &bull; Root Cause Analysis</div>
+    <div class="s-title">Why Existing Emergency Channels Fail:<br><span class="hi-red">In-Depth Analysis</span> of Core Operational Obstacles</div>
+    <div class="s-body">
+      Traditional emergency reporting assumes a calm caller, an active internet or voice connection, and open ability to speak. In real-world crises across the Philippines, these assumptions routinely break down. Below is the in-depth operational breakdown of each critical challenge and why structural intervention is required.
     </div>
     <div class="g2">
       <div class="pain-block">
@@ -643,11 +716,11 @@
 </section>
 
 <!-- ══════════════════════════════════════════
-     03  THE SOLUTION
+     04  THE SOLUTION
 ══════════════════════════════════════════ -->
 <section id="s3">
   <div class="wrap">
-    <div class="s-num">03 &mdash; The Solution</div>
+    <div class="s-num">04 &mdash; The Solution</div>
     <div class="chip c-teal"><span class="chip-dot teal"></span>System Architecture</div>
     <div class="s-title"><span class="hi-blue">D1ALERT</span> &mdash; Offline-First Emergency Alerts.<br>One Button. <span class="hi-teal">No Internet Required.</span></div>
     <div class="s-body">
@@ -695,11 +768,11 @@
 </section>
 
 <!-- ══════════════════════════════════════════
-     04  TARGET MARKET
+     05  TARGET MARKET
 ══════════════════════════════════════════ -->
 <section id="s4">
   <div class="wrap">
-    <div class="s-num">04 &mdash; Target Market</div>
+    <div class="s-num">05 &mdash; Target Market</div>
     <div class="chip c-amber"><span class="chip-dot amber"></span>Demographics &amp; Sectors</div>
     <div class="s-title">Designed for Citizens Facing Crises.<br><span class="hi-amber">Tailored for Emergency Organizations</span> as Responders.</div>
     <div class="s-body">
@@ -750,11 +823,11 @@
 </section>
 
 <!-- ══════════════════════════════════════════
-     05  BUSINESS MODEL & LEAN CANVAS
+     06  BUSINESS MODEL & LEAN CANVAS
 ══════════════════════════════════════════ -->
 <section id="s5">
   <div class="wrap">
-    <div class="s-num">05 &mdash; Business Model &amp; Lean Canvas</div>
+    <div class="s-num">06 &mdash; Business Model &amp; Lean Canvas</div>
     <div class="chip c-blue"><span class="chip-dot blue"></span>Strategic Framework</div>
     <div class="s-title">D1ALERT <span class="hi-blue">Lean Canvas Framework</span><br>Real People. Real Places. Faster Help.</div>
     <div class="s-body">
@@ -952,11 +1025,11 @@
 </section>
 
 <!-- ══════════════════════════════════════════
-     06  REVENUE STREAMS (FINAL SECTION)
+     07  REVENUE STREAMS (FINAL SECTION)
 ══════════════════════════════════════════ -->
 <section id="s6">
   <div class="wrap">
-    <div class="s-num">06 &mdash; Revenue Streams</div>
+    <div class="s-num">07 &mdash; Revenue Streams</div>
     <div class="chip c-teal"><span class="chip-dot teal"></span>Commercial Strategy</div>
     <div class="s-title">Institutional Licensing Model &mdash;<br><span class="hi-teal">&#x20B1;120,000/Year LGU Pricing</span> While Keeping Citizens Free.</div>
     
