@@ -531,7 +531,7 @@
       background: var(--bg-card);
       border: 1px solid var(--bord);
       border-radius: var(--r);
-      padding: 30px 22px 26px;
+      padding: 26px 20px 22px;
       text-align: center;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -547,10 +547,10 @@
       box-shadow: 0 20px 42px -6px rgba(0,0,0,0.6), 0 0 20px rgba(56, 189, 248, 0.15);
     }
     .team-avatar-wrap {
-      width: 154px;
-      height: 154px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      margin: 0 auto 20px;
+      margin: 0 auto 16px;
       padding: 4px;
       background: linear-gradient(135deg, rgba(56, 189, 248, 0.8), rgba(45, 212, 191, 0.8));
       box-shadow: 0 10px 26px rgba(0,0,0,0.4), 0 0 16px rgba(56, 189, 248, 0.25);
@@ -574,42 +574,8 @@
       font-size: 18px;
       font-weight: 800;
       color: #ffffff;
-      margin-bottom: 6px;
+      margin-bottom: 0;
       letter-spacing: -.01em;
-    }
-    .team-role {
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--teal);
-      text-transform: uppercase;
-      letter-spacing: .07em;
-      margin-bottom: 12px;
-      background: rgba(45, 212, 191, 0.1);
-      border: 1px solid rgba(45, 212, 191, 0.28);
-      padding: 4px 12px;
-      border-radius: 100px;
-      display: inline-block;
-    }
-    .team-desc {
-      font-size: 13px;
-      color: var(--txt2);
-      line-height: 1.7;
-      text-align: justify;
-      text-justify: inter-word;
-      margin-top: 4px;
-    }
-    .team-badge {
-      font-family: var(--mono);
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--blue);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      margin-top: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
     }
 
     /* ── SPACING & UTILS ── */
@@ -722,11 +688,9 @@
 
       /* Team Section on Mobile */
       .team-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 16px; }
-      .team-card { padding: 22px 16px 20px; }
-      .team-avatar-wrap { width: 130px; height: 130px; margin-bottom: 16px; }
+      .team-card { padding: 20px 16px 18px; }
+      .team-avatar-wrap { width: 130px; height: 130px; margin-bottom: 14px; }
       .team-name { font-size: 16.5px; }
-      .team-role { font-size: 10px; padding: 4px 10px; }
-      .team-desc { font-size: 12.5px; }
     }
 
     @media (max-width: 480px) {
@@ -1377,11 +1341,6 @@
           <img src="team-charles.jpg" alt="Charles Jericho H. Villapa" class="team-avatar"/>
         </div>
         <div class="team-name">Charles Jericho H. Villapa</div>
-        <div class="team-role">Project Proponent &bull; Lead Researcher</div>
-        <div class="team-desc">
-          Leading technical research, offline emergency architecture, edge AI acoustic detection integration, and core system design for the D1ALERT emergency platform.
-        </div>
-        <div class="team-badge"><span class="chip-dot blue"></span>QUANTA Research</div>
       </div>
 
       <!-- Member 02: Anthonette Mae A. Micate -->
@@ -1390,11 +1349,6 @@
           <img src="team-anthonette.jpg" alt="Anthonette Mae A. Micate" class="team-avatar"/>
         </div>
         <div class="team-name">Anthonette Mae A. Micate</div>
-        <div class="team-role">Project Proponent &bull; Lead Researcher</div>
-        <div class="team-desc">
-          Spearheading user experience research, crisis scenario workflow analysis, and stakeholder coordination to ensure intuitive, life-saving accessibility for citizens.
-        </div>
-        <div class="team-badge"><span class="chip-dot teal"></span>QUANTA Operations</div>
       </div>
 
       <!-- Member 03: Kristoff Dave Cabag -->
@@ -1403,11 +1357,6 @@
           <img src="team-kristoff.jpg" alt="Kristoff Dave Cabag" class="team-avatar"/>
         </div>
         <div class="team-name">Kristoff Dave Cabag</div>
-        <div class="team-role">Project Proponent &bull; Lead Researcher</div>
-        <div class="team-desc">
-          Overseeing data telemetry modeling, SMS fallback gateway engineering, and dispatcher validation protocols to guarantee rapid, high-reliability emergency routing.
-        </div>
-        <div class="team-badge"><span class="chip-dot amber"></span>QUANTA Engineering</div>
       </div>
     </div>
 
