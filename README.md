@@ -37,8 +37,10 @@
 
 ## 🚀 Live Demo & Deployment
 
-* **Deploy to Vercel (1-Click):**  
-  [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Foninhisula%2Fd1alert-presentation)
+* **Live on Vercel:** [https://temporary-snappy-prairie-da8lhh9.vercel.app](https://temporary-snappy-prairie-da8lhh9.vercel.app)
 * **GitHub Pages Live Link:** [https://oninhisula.github.io/d1alert-presentation/](https://oninhisula.github.io/d1alert-presentation/)
+* **Deploy to Vercel (1-Click / Connect to Account):**  
+  [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Foninhisula%2Fd1alert-presentation)
 * **Local Run:** Open `index.html` in any modern web browser or serve via Apache/Nginx/Localhost.
+
 
