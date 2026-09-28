@@ -12,3 +12,6 @@ Desktop.ini
 # Local scratch files
 *.tmp
 *.bak
+
+.vercel
+.env*

@@ -119,8 +119,8 @@
     section:last-child { border-bottom: none; }
     .wrap { max-width: var(--max); margin: 0 auto; }
 
-    /* Wide layout for dashboard-like sections */
-    #s4 .wrap, #s5 .wrap, #s6 .wrap { max-width: 1260px; }
+    /* Wide layout for showcase sections */
+    #s3 .wrap, #s4 .wrap, #s5 .wrap, #s6 .wrap { max-width: 1260px; }
 
     /* ── SECTION HEADER & METRICS ── */
     .s-num {
@@ -166,7 +166,7 @@
 
     .s-body {
       font-size: 15px; color: var(--txt2); line-height: 1.8;
-      margin-bottom: 30px; max-width: 740px;
+      margin-bottom: 24px; max-width: 820px;
       text-align: justify; text-justify: inter-word;
     }
     .s-body strong { color: var(--txt); font-weight: 600; }
@@ -182,7 +182,6 @@
     /* ── GRIDS ── */
     .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
     .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 
     /* ── BASE CARDS (GLASSMORPHIC) ── */
     .card {
@@ -286,35 +285,65 @@
     .feat-dot.teal   { background: var(--teal);   box-shadow: 0 0 8px var(--teal); }
     .feat-dot.violet { background: var(--violet); box-shadow: 0 0 8px var(--violet); }
 
-    /* ── SOLUTION BULLETS (SECTION 03) ── */
-    .bl { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .bl li {
-      display: flex; align-items: center; gap: 16px;
-      padding: 16px 20px;
-      background: var(--bg-card); border: 1px solid var(--bord);
-      border-radius: var(--r-sm);
-      font-size: 14px; color: var(--txt2); line-height: 1.7;
-      transition: border-color .25s, background .25s, transform .25s;
+    /* ── SHOWCASE CARD (FOR ALL 4 OFFICIAL DIAGRAM IMAGES) ── */
+    .showcase-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: var(--r);
+      padding: 24px;
+      margin-top: 14px;
+      margin-bottom: 24px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
     }
-    .bl li span:last-child { flex: 1; text-align: justify; text-justify: inter-word; }
-    .bl li:hover {
-      border-color: rgba(56,189,248,.4);
-      background: rgba(56,189,248,.05);
-      transform: translateX(4px);
+    .showcase-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.08);
     }
-    .bl-index {
-      flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
-      font-family: var(--mono); font-size: 12px; font-weight: 800;
-      display: inline-flex; align-items: center; justify-content: center;
-      transition: all .25s ease;
+    .showcase-hdr {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
+      flex-wrap: wrap; gap: 10px;
     }
-    .bl-index.blue   { background: rgba(56,189,248,0.12);  color: var(--blue);   border: 1px solid rgba(56,189,248,0.3); }
-    .bl-index.amber  { background: rgba(251,191,36,0.12);  color: var(--amber);  border: 1px solid rgba(251,191,36,0.3); }
-    .bl-index.teal   { background: rgba(45,212,191,0.12);  color: var(--teal);   border: 1px solid rgba(45,212,191,0.3); }
-    .bl-index.violet { background: rgba(167,139,250,0.12); color: var(--violet); border: 1px solid rgba(167,139,250,0.3); }
-    .bl li:hover .bl-index {
-      transform: scale(1.1);
-      box-shadow: 0 0 14px currentColor;
+    .showcase-left { display: flex; align-items: center; gap: 10px; }
+    .showcase-sub {
+      font-family: var(--mono); font-size: 10px; text-transform: uppercase;
+      letter-spacing: .1em; font-weight: 700; color: var(--blue);
+    }
+    .showcase-title { font-size: 16px; font-weight: 700; color: var(--txt); }
+    .showcase-right { display: flex; align-items: center; gap: 10px; }
+    .showcase-tag {
+      font-family: var(--mono); font-size: 11px; color: var(--teal);
+      background: rgba(45, 212, 191, 0.1); border: 1px solid rgba(45, 212, 191, 0.25);
+      padding: 4px 10px; border-radius: 8px;
+    }
+    .zoom-btn {
+      background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #ffffff; font-family: var(--mono); font-size: 11px; font-weight: 600;
+      padding: 6px 14px; border-radius: 8px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px; transition: all .2s;
+    }
+    .zoom-btn:hover {
+      background: rgba(56, 189, 248, 0.22); border-color: var(--blue);
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.3);
+    }
+
+    .showcase-canvas {
+      background: #fbf7f0; border-radius: 12px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      text-align: center; padding: 12px;
+    }
+    .showcase-canvas img {
+      width: 100%; max-width: 980px; height: auto; display: block; margin: 0 auto;
+      border-radius: 6px; cursor: zoom-in; transition: transform .3s ease;
+    }
+    .showcase-canvas img:hover {
+      transform: scale(1.008);
+    }
+    .showcase-ftr {
+      display: flex; justify-content: space-between; align-items: center; margin-top: 14px;
+      font-size: 12px; color: var(--txt3); font-family: var(--mono); flex-wrap: wrap; gap: 8px;
     }
 
     /* ── ALERT PIPELINE (SECTION 03) ── */
@@ -345,59 +374,16 @@
     .flow-step .fs-txt { font-size: 14px; color: var(--txt2); line-height: 1.65; text-align: justify; text-justify: inter-word; }
     .flow-step .fs-txt strong { color: var(--txt); font-weight: 600; }
 
-    /* ── TARGET MARKET SEGMENT CARDS (SECTION 04) ── */
-    .seg-c {
-      background: var(--bg-card); border: 1px solid var(--bord);
-      border-radius: var(--r); padding: 24px 20px;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 10px 30px -6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
-      transition: transform .3s, border-color .3s, box-shadow .3s;
-    }
-    .seg-c:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.5);
-    }
-    .sc-num {
-      width: 48px; height: 48px; border-radius: 12px;
-      display: inline-flex; align-items: center; justify-content: center;
-      font-family: var(--mono); font-size: 16px; font-weight: 800;
-      margin-bottom: 16px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-      transition: all .3s var(--ease);
-    }
-    .seg-c:hover .sc-num {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px currentColor;
-    }
-    .sc-num.red    { color: #f87171; border-color: rgba(248,113,113,0.35); background: rgba(248,113,113,0.1); }
-    .sc-num.amber  { color: #fbbf24; border-color: rgba(251,191,36,0.35);  background: rgba(251,191,36,0.1); }
-    .sc-num.blue   { color: #38bdf8; border-color: rgba(56,189,248,0.35);  background: rgba(56,189,248,0.1); }
-    .sc-num.violet { color: #a78bfa; border-color: rgba(167,139,250,0.35); background: rgba(167,139,250,0.1); }
-
-    .seg-c .sc-lbl { font-family: var(--mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--txt3); margin-bottom: 10px; }
-    .seg-c .sc-txt { font-size: 14px; color: var(--txt2); line-height: 1.7; text-align: justify; text-justify: inter-word; }
-
-    .target-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-    .pill-tag {
-      display: inline-flex; align-items: center;
-      padding: 3px 8px; border-radius: 6px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--txt); font-size: 11px; font-weight: 600;
-    }
-
     /* ── LEAN CANVAS CONTAINER (SECTION 05) ── */
-    .lc-tab-container { margin-top: 24px; }
+    .lc-tab-container { margin-top: 20px; }
     .lc-view-switcher {
-      display: flex; gap: 12px; margin-bottom: 20px; align-items: center; flex-wrap: wrap;
+      display: flex; gap: 12px; margin-bottom: 16px; align-items: center; flex-wrap: wrap;
     }
     .lc-view-btn {
       background: var(--bg-card); border: 1px solid var(--bord);
       color: var(--txt2); font-family: var(--mono); font-size: 12px; font-weight: 600;
-      padding: 10px 18px; border-radius: 10px; cursor: pointer;
-      display: inline-flex; align-items: center; gap: 10px;
+      padding: 9px 16px; border-radius: 10px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
       transition: all .2s ease;
     }
     .lc-view-btn:hover {
@@ -472,94 +458,15 @@
     .lc-col-body { color: #cbd5e1; font-size: 14px; text-align: justify; text-justify: inter-word; }
     .lc-col-body strong { color: #ffffff; font-weight: 700; }
 
-    /* ── LEAN CANVAS POSTER BOARD ── */
-    .lc-board {
-      width: 100%; box-sizing: border-box; background: rgba(10, 16, 28, 0.9);
-      border: 1px solid rgba(56, 189, 248, 0.3); border-radius: var(--r);
-      padding: 20px; box-shadow: 0 16px 48px rgba(0,0,0,0.5);
-    }
-    .lc-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 12px; margin-top: 14px; }
-    .lc-col-2 { grid-column: span 2; }
-    .lc-col-5 { grid-column: span 5; }
-    .lc-card {
-      background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.08);
-      border-top: 3px solid var(--card-accent, #38bdf8); border-radius: 10px;
-      padding: 14px; display: flex; flex-direction: column; justify-content: flex-start;
-      transition: transform .25s ease, border-color .25s ease;
-    }
-    .lc-card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.2); }
-    .lc-card-title {
-      font-family: var(--mono); font-size: 11px; font-weight: 800; text-transform: uppercase;
-      letter-spacing: .05em; color: #ffffff; margin-bottom: 10px; padding-bottom: 7px;
-      border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 8px;
-    }
-    .board-badge {
-      font-family: var(--mono); font-size: 10px; font-weight: 800; padding: 2px 6px;
-      border-radius: 4px; background: rgba(255,255,255,0.1); color: var(--card-accent, #38bdf8);
-    }
-    .lc-list { list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-    .lc-list li {
-      font-size: 12px; color: #cbd5e1; line-height: 1.5; padding-left: 12px; position: relative;
-      text-align: justify; text-justify: inter-word;
-    }
-    .lc-list li::before {
-      content: '●'; position: absolute; left: 0; top: 1px; font-size: 7px; color: var(--card-accent, #38bdf8);
-    }
-    .lc-list li strong { color: #ffffff; font-weight: 700; }
-    .uvp-card > div:not(.lc-card-title) { text-align: justify; text-justify: inter-word; }
-
-    /* ── REVENUE STREAMS SHOWCASE (SECTION 06) ── */
-    .rev-diagram-card {
-      background: var(--bg-card); border: 1px solid rgba(45, 212, 191, 0.3);
-      border-radius: var(--r); padding: 24px; margin-bottom: 28px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
-    }
-    .diagram-hdr {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
-      flex-wrap: wrap; gap: 10px;
-    }
-    .dh-left { display: flex; align-items: center; gap: 12px; }
-    .dh-sub { font-family: var(--mono); font-size: 10px; color: var(--teal); text-transform: uppercase; letter-spacing: .1em; font-weight: 700; }
-    .dh-title { font-size: 16px; font-weight: 700; color: var(--txt); }
-    .dh-right { display: flex; align-items: center; gap: 10px; }
-    .dh-tag {
-      font-family: var(--mono); font-size: 11px; color: var(--teal);
-      background: rgba(45, 212, 191, 0.1); border: 1px solid rgba(45, 212, 191, 0.25);
-      padding: 4px 10px; border-radius: 8px;
-    }
-    .zoom-btn {
-      background: rgba(45, 212, 191, 0.14); border: 1px solid rgba(45, 212, 191, 0.35);
-      color: #ffffff; font-family: var(--mono); font-size: 11px; font-weight: 600;
-      padding: 7px 14px; border-radius: 8px; cursor: pointer;
-      display: inline-flex; align-items: center; gap: 6px; transition: all .2s;
-    }
-    .zoom-btn:hover {
-      background: rgba(45, 212, 191, 0.25); border-color: var(--teal);
-      box-shadow: 0 0 14px rgba(45, 212, 191, 0.3);
-    }
-
-    .diagram-canvas {
-      background: #fbf7f0; border-radius: 12px; overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-      text-align: center; padding: 14px 18px;
-    }
-    .diagram-canvas img {
-      width: 100%; max-width: 826px; height: auto; display: block; margin: 0 auto;
-      border-radius: 6px; cursor: zoom-in; transition: transform .3s ease;
-    }
-    .diagram-ftr {
-      display: flex; justify-content: space-between; align-items: center; margin-top: 14px;
-      font-size: 12px; color: var(--txt2); font-family: var(--mono); flex-wrap: wrap; gap: 8px;
-    }
-
+    /* ── REVENUE STREAMS OVERVIEW (SECTION 06) ── */
     .overview-box {
       background: linear-gradient(135deg, rgba(45, 212, 191, 0.1), rgba(56, 189, 248, 0.06));
       border: 1px solid rgba(45, 212, 191, 0.28); border-radius: var(--r);
-      padding: 28px 32px; margin-bottom: 28px; box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+      padding: 24px 28px; margin-top: 20px; margin-bottom: 24px; box-shadow: 0 12px 32px rgba(0,0,0,0.25);
     }
     .ob-hdr {
       font-family: var(--mono); font-size: 12px; color: var(--teal);
-      text-transform: uppercase; letter-spacing: .1em; margin-bottom: 14px;
+      text-transform: uppercase; letter-spacing: .1em; margin-bottom: 12px;
       display: flex; align-items: center; gap: 8px; font-weight: 700;
     }
     .ob-text {
@@ -577,7 +484,7 @@
 
     /* ── CALLOUT INFO BOX ── */
     .info-box {
-      background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(255,255,255,0.08);
       border-radius: var(--r-sm); padding: 20px 22px; font-size: 14px;
       color: var(--txt2); line-height: 1.8; text-align: justify; text-justify: inter-word;
     }
@@ -614,13 +521,11 @@
     #btt:hover { transform: translateY(-3px); }
 
     /* ── SPACING & UTILS ── */
+    .mt20 { margin-top: 20px; }
     .mt24 { margin-top: 24px; }
 
     @media (max-width: 980px) {
-      .lc-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .lc-col-2 { grid-column: span 1; }
-      .lc-col-5 { grid-column: span 2; }
-      .g3, .g4 { grid-template-columns: 1fr; }
+      .g3 { grid-template-columns: 1fr; }
     }
     @media (max-width: 680px) {
       .g2 { grid-template-columns: 1fr; }
@@ -746,21 +651,36 @@
     <div class="chip c-teal"><span class="chip-dot teal"></span>System Architecture</div>
     <div class="s-title"><span class="hi-blue">D1ALERT</span> &mdash; Offline-First Emergency Alerts.<br>One Button. <span class="hi-teal">No Internet Required.</span></div>
     <div class="s-body">
-      <strong>D1ALERT SYSTEM</strong> is an offline-first emergency alert system designed to help citizens report emergencies quickly, even when mobile data or Wi-Fi is unavailable. It addresses delayed reporting, communication difficulties, and location problems through a simple activation and discreet physical-button confirmation, followed by local processing using <em>YAMNet</em> for acoustic-event detection, <em>Vosk</em> for offline speech recognition, and an <em>MLP classifier</em> for preliminary emergency classification.
-      <br><br>
-      The system obtains the best available location and sends a <strong>structured SMS alert containing essential emergency information</strong> to an authorized emergency organization, where a <strong>dispatcher can validate the alert and determine the appropriate response</strong>.
-      <br><br>
-      What makes D1ALERT different is its combination of <strong>offline AI, discreet emergency activation, location fallback, and low-bandwidth SMS communication</strong> in one smartphone-based system. Its core AI processing does not depend on mobile data or Wi-Fi, making it useful in low-connectivity and high-risk situations. It also supports silent or duress situations and uses human dispatcher validation rather than allowing AI to make the final emergency-response decision.
+      <strong>D1ALERT SYSTEM</strong> is an offline-first emergency alert system combining on-device AI (YAMNet acoustic detection, Vosk offline speech transcription, and MLP classifier), discreet physical-button confirmation, location fallback, and low-bandwidth SMS alerts sent directly to authorized emergency organizations for human dispatcher validation.
     </div>
-    <div class="divider-lbl">What makes D1ALERT different</div>
-    <ul class="bl">
-      <li><div class="bl-index blue">01</div><span><strong>Offline AI processing</strong> &mdash; Local processing using YAMNet for acoustic-event detection, Vosk for offline speech recognition, and an MLP classifier for preliminary emergency classification running on-device with zero cloud dependency.</span></li>
-      <li><div class="bl-index amber">02</div><span><strong>Discreet physical-button activation</strong> &mdash; Simple activation and discreet physical-button confirmation, designed for silent or duress situations where speaking is unsafe or impossible.</span></li>
-      <li><div class="bl-index teal">03</div><span><strong>Location fallback</strong> &mdash; Obtains the best available location coordinates even without live GPS or mobile data connectivity.</span></li>
-      <li><div class="bl-index blue">04</div><span><strong>SMS-based emergency alerts</strong> &mdash; Low-bandwidth SMS communication operating on standard cellular networks, delivering alerts during network congestion or disasters.</span></li>
-      <li><div class="bl-index teal">05</div><span><strong>Structured emergency information</strong> &mdash; Sends essential emergency payload, incident classification, and device coordinates directly to dispatchers.</span></li>
-      <li><div class="bl-index violet">06</div><span><strong>Human dispatcher validation</strong> &mdash; A dispatcher validates the alert and determines the appropriate response rather than allowing AI to make the final emergency-response decision.</span></li>
-    </ul>
+
+    <!-- Official Solution Infographic Showcase -->
+    <div class="showcase-card">
+      <div class="showcase-hdr">
+        <div class="showcase-left">
+          <span class="chip-dot teal"></span>
+          <div>
+            <div class="showcase-sub">SYSTEM BLUEPRINT</div>
+            <div class="showcase-title">Solution Architecture &amp; Core Capability Matrix</div>
+          </div>
+        </div>
+        <div class="showcase-right">
+          <span class="showcase-tag">Official Slide</span>
+          <button onclick="openImageModal('solution-diagram.jpg')" class="zoom-btn">
+            View Fullscreen
+          </button>
+        </div>
+      </div>
+      <div class="showcase-canvas">
+        <img src="solution-diagram.jpg" alt="D1ALERT Solution Architecture Diagram" onclick="openImageModal(this.src)" title="Click to view fullscreen"/>
+      </div>
+      <div class="showcase-ftr">
+        <span>6 Core Capabilities &bull; Offline AI &bull; Button Activation &bull; SMS Delivery &bull; Dispatcher Validation</span>
+        <span>Click image to enlarge</span>
+      </div>
+    </div>
+
+    <!-- Alert Pipeline Workflow -->
     <div class="divider-lbl">Alert Pipeline &mdash; 7 Steps</div>
     <div class="flow">
       <div class="flow-step"><div class="fs-dot">01</div><div><div class="fs-tag">Step 01 &bull; Activation</div><div class="fs-txt"><strong>Physical button pressed</strong> &mdash; Discreet, requires no speaking. Designed for victims of assault, stalking, or active threats who cannot safely vocalize.</div></div></div>
@@ -783,64 +703,42 @@
     <div class="chip c-amber"><span class="chip-dot amber"></span>Demographics &amp; Sectors</div>
     <div class="s-title">Designed for Citizens Facing Crises.<br><span class="hi-amber">Tailored for Emergency Organizations</span> as Responders.</div>
     <div class="s-body">
-      <strong>D1ALERT</strong> is designed for citizens who may need immediate emergency assistance, particularly those experiencing medical emergencies, accidents, fires, flooding, disasters, crime, or violence. It is especially relevant to people in rural, coastal, mountainous, disaster-prone, and geographically isolated areas where internet connectivity may be limited or unreliable. The system also supports people in silent or high-risk situations, such as victims of assault, robbery, stalking, or other emergencies where speaking may not be safe.
+      <strong>D1ALERT</strong> addresses both sides of the emergency response equation: citizens in urgent distress, particularly in remote and low-connectivity areas, and institutional responders needing structured, validated data.
     </div>
-    <div class="g4">
-      <div class="seg-c" style="border-top:3px solid var(--red);">
-        <div class="sc-num red">01</div>
-        <div class="sc-lbl" style="color:var(--red);">01 &mdash; CITIZENS</div>
-        <div class="target-pills">
-          <span class="pill-tag">Medical emergencies</span>
-          <span class="pill-tag">Accidents</span>
-          <span class="pill-tag">Fire</span>
-          <span class="pill-tag">Crime</span>
-          <span class="pill-tag">Disasters</span>
+
+    <!-- Official Target Market Infographic Showcase -->
+    <div class="showcase-card">
+      <div class="showcase-hdr">
+        <div class="showcase-left">
+          <span class="chip-dot amber"></span>
+          <div>
+            <div class="showcase-sub">MARKET SEGMENTATION</div>
+            <div class="showcase-title">Citizen &amp; Organizational Target Market Matrix</div>
+          </div>
         </div>
-        <div class="sc-txt">Citizens who may need immediate emergency assistance, particularly those experiencing <strong>medical emergencies, accidents, fires, flooding, disasters, crime, or violence</strong>.</div>
+        <div class="showcase-right">
+          <span class="showcase-tag">Official Slide</span>
+          <button onclick="openImageModal('target-market-diagram.jpg')" class="zoom-btn">
+            View Fullscreen
+          </button>
+        </div>
       </div>
-      <div class="seg-c" style="border-top:3px solid var(--amber);">
-        <div class="sc-num amber">02</div>
-        <div class="sc-lbl" style="color:var(--amber);">02 &mdash; LOW-CONNECTIVITY COMMUNITIES</div>
-        <div class="target-pills">
-          <span class="pill-tag">Rural</span>
-          <span class="pill-tag">Coastal</span>
-          <span class="pill-tag">Mountainous</span>
-          <span class="pill-tag">GIDA</span>
-          <span class="pill-tag">Disaster-prone</span>
-        </div>
-        <div class="sc-txt">People in <strong>rural, coastal, mountainous, disaster-prone, and geographically isolated areas (GIDA)</strong> where internet connectivity may be limited or unreliable.</div>
+      <div class="showcase-canvas">
+        <img src="target-market-diagram.jpg" alt="D1ALERT Target Market Matrix Diagram" onclick="openImageModal(this.src)" title="Click to view fullscreen"/>
       </div>
-      <div class="seg-c" style="border-top:3px solid var(--blue);">
-        <div class="sc-num blue">03</div>
-        <div class="sc-lbl" style="color:var(--blue);">03 &mdash; EMERGENCY ORGANIZATIONS</div>
-        <div class="target-pills">
-          <span class="pill-tag">LGUs</span>
-          <span class="pill-tag">LDRRMOs</span>
-          <span class="pill-tag">PNP</span>
-          <span class="pill-tag">BFP</span>
-          <span class="pill-tag">Health/Ambulance</span>
-        </div>
-        <div class="sc-txt">Institutional responders &mdash; <strong>LGUs, LDRRMOs, PNP, BFP, and emergency health services</strong> receiving structured, validated alert payloads with GPS coordinates.</div>
-      </div>
-      <div class="seg-c" style="border-top:3px solid var(--violet);">
-        <div class="sc-num violet">04</div>
-        <div class="sc-lbl" style="color:var(--violet);">04 &mdash; HIGH-RISK USERS</div>
-        <div class="target-pills">
-          <span class="pill-tag">Silent emergencies</span>
-          <span class="pill-tag">Assault</span>
-          <span class="pill-tag">Robbery</span>
-          <span class="pill-tag">Stalking</span>
-          <span class="pill-tag">Duress</span>
-        </div>
-        <div class="sc-txt">People in silent or high-risk situations, such as <strong>victims of assault, robbery, stalking, or duress</strong> where speaking or looking at a phone screen is unsafe, enabled by physical-button activation.</div>
+      <div class="showcase-ftr">
+        <span>4 Key Segments &bull; Citizens &bull; Low-Connectivity &bull; Emergency Organizations &bull; High-Risk Users</span>
+        <span>Click image to enlarge</span>
       </div>
     </div>
-    <div class="mt24">
+
+    <!-- Organizational Fit Note -->
+    <div class="mt20">
       <div class="info-box" style="border-left: 4px solid var(--blue); background: rgba(15, 23, 42, 0.8);">
         <div style="font-family:var(--mono); font-size:11px; font-weight:700; color:var(--blue); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
           ORGANIZATIONAL TARGET &bull; Responders &amp; Customers
         </div>
-        <div style="margin-bottom:12px; color:var(--txt); font-size:14px; line-height:1.75; text-align:justify; text-justify:inter-word;">
+        <div style="margin-bottom:10px; color:var(--txt); font-size:14px; line-height:1.75; text-align:justify; text-justify:inter-word;">
           On the organizational side, D1ALERT is intended for <strong>LGUs, LDRRMOs, PNP units, BFP stations, health and ambulance services, campus-security organizations, and authorized private emergency centers</strong> that can receive, validate, and route emergency alerts.
         </div>
         <div style="color:var(--txt2); font-size:14px; line-height:1.75; text-align:justify; text-justify:inter-word;">
@@ -858,24 +756,50 @@
   <div class="wrap">
     <div class="s-num">05 &mdash; Business Model &amp; Lean Canvas</div>
     <div class="chip c-blue"><span class="chip-dot blue"></span>Strategic Framework</div>
-    <div class="s-title">D1ALERT <span class="hi-blue">Lean Canvas Framework</span><br>12 Key Operational &amp; Business Blocks.</div>
+    <div class="s-title">D1ALERT <span class="hi-blue">Lean Canvas Framework</span><br>Real People. Real Places. Faster Help.</div>
     <div class="s-body">
-      A comprehensive 12-point Lean Canvas mapping of D1ALERT&rsquo;s problem space, on-device AI solution, unique value proposition, customer segments, channels, cost drivers, and sustainable institutional revenue model.
+      A comprehensive operational mapping of D1ALERT&rsquo;s key partners, activities, unique value proposition, customer relationships, channels, segments, cost drivers, and sustainable institutional revenue streams.
     </div>
 
     <div class="lc-tab-container">
       <!-- VIEW SWITCHER -->
       <div class="lc-view-switcher">
-        <button id="btn-lc-table" class="lc-view-btn active" onclick="setLcView('table')">
-          <span class="btn-dot"></span> Official 12-Block Table View
+        <button id="btn-lc-board" class="lc-view-btn active" onclick="setLcView('board')">
+          <span class="btn-dot"></span> Graphic Poster View
         </button>
-        <button id="btn-lc-board" class="lc-view-btn" onclick="setLcView('board')">
-          <span class="btn-dot"></span> Poster Board View
+        <button id="btn-lc-table" class="lc-view-btn" onclick="setLcView('table')">
+          <span class="btn-dot"></span> Official 12-Block Table View
         </button>
       </div>
 
-      <!-- ── VIEW 1: OFFICIAL LEAN CANVAS TABLE (12 ITEMS EXACT CONTENT) ── -->
-      <div id="lc-view-table" class="lc-table-wrap">
+      <!-- ── VIEW 1: OFFICIAL LEAN CANVAS GRAPHIC POSTER SHOWCASE ── -->
+      <div id="lc-view-board" class="showcase-card" style="margin-top:0;">
+        <div class="showcase-hdr">
+          <div class="showcase-left">
+            <span class="chip-dot blue"></span>
+            <div>
+              <div class="showcase-sub">LEAN CANVAS POSTER</div>
+              <div class="showcase-title">D1ALERT &mdash; Complete Operational Framework</div>
+            </div>
+          </div>
+          <div class="showcase-right">
+            <span class="showcase-tag">Official Slide</span>
+            <button onclick="openImageModal('lean-canvas-diagram.jpg')" class="zoom-btn">
+              View Fullscreen
+            </button>
+          </div>
+        </div>
+        <div class="showcase-canvas">
+          <img src="lean-canvas-diagram.jpg" alt="D1ALERT Lean Canvas Poster Diagram" onclick="openImageModal(this.src)" title="Click to view fullscreen"/>
+        </div>
+        <div class="showcase-ftr">
+          <span>Key Partners &bull; Activities &bull; Value Proposition &bull; Relationships &bull; Channels &bull; Segments &bull; Costs &bull; Revenue</span>
+          <span>Click image to enlarge</span>
+        </div>
+      </div>
+
+      <!-- ── VIEW 2: OFFICIAL LEAN CANVAS TABLE (12 ITEMS EXACT CONTENT) ── -->
+      <div id="lc-view-table" class="lc-table-wrap" style="display:none; margin-top:0;">
         <div class="lc-banner">
           D1ALERT &mdash; LEAN CANVAS
         </div>
@@ -1023,108 +947,6 @@
         </table>
       </div>
 
-      <!-- ── VIEW 2: POSTER BOARD VIEW (12 ITEMS INTEGRATED) ── -->
-      <div id="lc-view-board" class="lc-board" style="display:none; margin-top:0;">
-        <div class="lc-banner">D1ALERT &mdash; LEAN CANVAS BOARD</div>
-        <div class="lc-grid">
-
-          <!-- ── COL 1: 1. PROBLEM & 6. EXISTING ALTERNATIVES ── -->
-          <div class="lc-card lc-col-2" style="--card-accent:#f87171;">
-            <div class="lc-card-title"><span class="board-badge">01</span> 1. Problem</div>
-            <ul class="lc-list" style="margin-bottom:12px;">
-              <li>Delayed emergency reporting.</li>
-              <li>Dependence on internet-based communication.</li>
-              <li>Difficulty providing an exact location.</li>
-              <li>Difficulty reporting during silent or high-risk emergencies.</li>
-            </ul>
-            <div class="lc-card-title" style="border-top:1px solid rgba(255,255,255,0.08); padding-top:8px; margin-top:8px;"><span class="board-badge">06</span> 6. Existing Alt.</div>
-            <ul class="lc-list">
-              <li>Existing emergency communication methods can depend heavily on voice communication, internet connectivity, or manual reporting.</li>
-            </ul>
-          </div>
-
-          <!-- ── COL 2: 2. SOLUTION & 7. KEY METRICS ── -->
-          <div class="lc-card lc-col-2" style="--card-accent:#2dd4bf;">
-            <div class="lc-card-title"><span class="board-badge">02</span> 2. Solution</div>
-            <ul class="lc-list" style="margin-bottom:12px;">
-              <li>Offline-first emergency alert system using physical-button activation.</li>
-              <li>Offline AI (YAMNet, Vosk, MLP) &amp; location fallback.</li>
-              <li>SMS emergency alerts sent to authorized organizations for dispatcher validation.</li>
-            </ul>
-            <div class="lc-card-title" style="border-top:1px solid rgba(255,255,255,0.08); padding-top:8px; margin-top:8px;"><span class="board-badge">07</span> 7. Key Metrics</div>
-            <ul class="lc-list">
-              <li>Alert-to-dispatch delays.</li>
-              <li>Emergency simulations &amp; alert processing.</li>
-              <li>Organizational onboarding rate.</li>
-            </ul>
-          </div>
-
-          <!-- ── COL 3: 3. UNIQUE VALUE PROP & 8. HIGH-LEVEL CONCEPT ── -->
-          <div class="lc-card lc-col-2 uvp-card" style="--card-accent:#fbbf24;">
-            <div class="lc-card-title" style="color:#ffffff;"><span class="board-badge">03</span> 3. Value Prop.</div>
-            <div style="font-size:12px; line-height:1.55; color:#ffffff; margin-bottom:10px;">
-              <strong>&ldquo;D1ALERT provides a fast, structured, discreet, and location-aware emergency reporting channel that can perform core processing without mobile data or Wi-Fi.&rdquo;</strong>
-            </div>
-            <div style="font-size:11px; line-height:1.5; color:#93c5fd; margin-bottom:12px;">
-              Combines offline AI, physical-button activation, location acquisition, and SMS.
-            </div>
-            <div class="lc-card-title" style="border-top:1px solid rgba(255,255,255,0.08); padding-top:8px; margin-top:8px;"><span class="board-badge">08</span> 8. Concept</div>
-            <div style="font-size:11px; line-height:1.5; color:#cbd5e1;">
-              Offer an offline-first emergency alert system combining offline AI, discreet button activation, location fallback, and SMS to provide structured emergency information.
-            </div>
-          </div>
-
-          <!-- ── COL 4: 4. UNFAIR ADVANTAGE & 9. CHANNELS ── -->
-          <div class="lc-card lc-col-2" style="--card-accent:#a78bfa;">
-            <div class="lc-card-title"><span class="board-badge">04</span> 4. Unfair Adv.</div>
-            <ul class="lc-list" style="margin-bottom:12px;">
-              <li>Combination of offline AI + discreet activation + location fallback + low-bandwidth SMS in one smartphone-based system, with human dispatcher validation.</li>
-            </ul>
-            <div class="lc-card-title" style="border-top:1px solid rgba(255,255,255,0.08); padding-top:8px; margin-top:8px;"><span class="board-badge">09</span> 9. Channels</div>
-            <ul class="lc-list">
-              <li>Official app stores &amp; authorized distribution.</li>
-              <li>Direct organizational onboarding &amp; pilot deployment.</li>
-              <li>SMS as primary low-bandwidth alert channel.</li>
-            </ul>
-          </div>
-
-          <!-- ── COL 5: 5. CUSTOMER SEGMENTS & 10. EARLY ADOPTERS ── -->
-          <div class="lc-card lc-col-2" style="--card-accent:#38bdf8;">
-            <div class="lc-card-title"><span class="board-badge">05</span> 5. Customer Seg.</div>
-            <ul class="lc-list" style="margin-bottom:12px;">
-              <li><strong>Primary users:</strong> Citizens facing medical, accidents, fires, disasters, crime, or silent/high-risk situations.</li>
-              <li><strong>Organizational:</strong> LGUs, LDRRMOs, PNP, BFP, health, campuses, private centers.</li>
-              <li><strong>Geography:</strong> Rural, coastal, mountainous, GIDA, low-connectivity.</li>
-            </ul>
-            <div class="lc-card-title" style="border-top:1px solid rgba(255,255,255,0.08); padding-top:8px; margin-top:8px;"><span class="board-badge">10</span> 10. Early Adopters</div>
-            <ul class="lc-list">
-              <li>People in rural, coastal, mountainous, GIDA, disaster-prone, low-connectivity, and silent/high-risk situations.</li>
-              <li>LGUs, LDRRMOs, PNP, BFP, health/ambulance, campuses, authorized emergency centers.</li>
-            </ul>
-          </div>
-
-          <!-- ── BOTTOM ROW: 11. COST STRUCTURE & 12. REVENUE STREAMS ── -->
-          <div class="lc-card lc-col-5" style="--card-accent:#fb7185;">
-            <div class="lc-card-title"><span class="board-badge">11</span> 11. Cost Structure</div>
-            <ul class="lc-list">
-              <li>Software and AI development &amp; app maintenance.</li>
-              <li>Onboarding and pilot activities, dispatcher training, and technical support.</li>
-              <li>Security updates, map-data maintenance, SMS charges, and app distribution.</li>
-            </ul>
-          </div>
-
-          <div class="lc-card lc-col-5" style="--card-accent:#2dd4bf;">
-            <div class="lc-card-title"><span class="board-badge">12</span> 12. Revenue Streams</div>
-            <ul class="lc-list">
-              <li><strong>LGU/Command-Center License:</strong> <strong style="color:var(--amber);">&#x20B1;120,000 / year</strong>.</li>
-              <li><strong>Private-Sector Subscriptions:</strong> Annual subscriptions for enterprise/campuses.</li>
-              <li><strong>One-Time Onboarding Fees:</strong> Setup, dispatcher training, and pilot simulations.</li>
-              <li><strong>Additional Fees:</strong> Extended training, custom integrations, specialized support, and organization-specific requirements.</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1138,32 +960,32 @@
     <div class="chip c-teal"><span class="chip-dot teal"></span>Commercial Strategy</div>
     <div class="s-title">Institutional Licensing Model &mdash;<br><span class="hi-teal">&#x20B1;120,000/Year LGU Pricing</span> While Keeping Citizens Free.</div>
     
-    <!-- ── REVENUE STREAMS INFOGRAPHIC DIAGRAM SHOWCASE ── -->
-    <div class="rev-diagram-card">
-      <div class="diagram-hdr">
-        <div class="dh-left">
+    <!-- ── OFFICIAL REVENUE STREAMS INFOGRAPHIC SHOWCASE ── -->
+    <div class="showcase-card">
+      <div class="showcase-hdr">
+        <div class="showcase-left">
           <span class="chip-dot teal"></span>
           <div>
-            <div class="dh-sub">COMMERCIAL ECOSYSTEM</div>
-            <div class="dh-title">Revenue Streams &amp; Commercial Pipeline Architecture</div>
+            <div class="showcase-sub">COMMERCIAL ECOSYSTEM</div>
+            <div class="showcase-title">Revenue Streams &amp; Commercial Pipeline Architecture</div>
           </div>
         </div>
-        <div class="dh-right">
-          <span class="dh-tag">Official Framework</span>
-          <button onclick="openImageModal('revenue-streams-diagram.png')" class="zoom-btn">
+        <div class="showcase-right">
+          <span class="showcase-tag">Official Slide</span>
+          <button onclick="openImageModal('revenue-streams-diagram.jpg')" class="zoom-btn">
             View Fullscreen
           </button>
         </div>
       </div>
 
       <!-- Diagram Display Canvas -->
-      <div class="diagram-canvas">
-        <img src="revenue-streams-diagram.png" alt="D1ALERT Revenue Streams Architecture and Commercial Ecosystem" onclick="openImageModal(this.src)" title="Click to view full image"/>
+      <div class="showcase-canvas">
+        <img src="revenue-streams-diagram.jpg" alt="D1ALERT Revenue Streams Architecture and Commercial Ecosystem" onclick="openImageModal(this.src)" title="Click to view fullscreen"/>
       </div>
       
-      <div class="diagram-ftr">
+      <div class="showcase-ftr">
         <span>B2G Institutional Tier &bull; B2B Enterprise Subscriptions &bull; 100% Free Public Citizen App</span>
-        <span style="color:var(--txt3);">Click diagram to open high-res lightbox</span>
+        <span>Click image to enlarge</span>
       </div>
     </div>
 
@@ -1216,24 +1038,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════
-     STASHED SECTIONS (CURRENT PRESENTATION ENDS AT REVENUE STREAMS)
-══════════════════════════════════════════════════════════════ -->
-<!--
-<section id="s-gtm-stashed">
-  ... GTM Strategy stashed for future use ...
-</section>
-<section id="s-competition-stashed">
-  ... Competitive Landscape stashed for future use ...
-</section>
-<section id="s-team-stashed">
-  ... The Team stashed for future use ...
-</section>
-<section id="s-ask-stashed">
-  ... The Ask & Milestones stashed for future use ...
-</section>
--->
-
 <!-- Back to top -->
 <button id="btt" onclick="scrollTo({top:0,behavior:'smooth'})" title="Back to top">&#x2191;</button>
 
@@ -1279,7 +1083,7 @@
     }
   }
 
-  // Lightbox Modal for Diagram
+  // Lightbox Modal for any Diagram Image
   function openImageModal(src) {
     const modal = document.getElementById('imageModal');
     const img = document.getElementById('modalImg');
